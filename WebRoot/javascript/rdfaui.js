@@ -31,9 +31,9 @@ $(document).ready(function() {
 	});
 	
 function guess_topic_with_ui(id){
-			var guess_loader = document.getElementById("guess_loader");
-			guess_loader.style.display = "block";
 			var index = id.split("\_")[1];
+			var guess_loader = document.getElementById("guessloader_"+index);
+			guess_loader.style.display = "block";
 			var rdf_url = document.getElementById("rdfurl_"+index).value;
 			var req1 = null;
 			if(window.XMLHttpRequest){

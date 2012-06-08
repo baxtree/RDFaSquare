@@ -1,8 +1,15 @@
 		var xhtmlrdfa_backup = "";
 		
 		function transform(type) {
-			var complete_page_loader = document.getElementById("complete_page_loader");
-			complete_page_loader.style.display = "block";
+			if(type == "complete"){
+				var loader = document.getElementById("complete_page_loader");
+				loader.style.display = "block";
+			}
+			else if(type == "partial"){
+				var loader = document.getElementById("div_snippet_loader");
+				loader.style.display = "block";
+			}
+			
 			var flag = document.getElementById("addtopiccontext").disabled;
 			var req = null;
 			var url = "";
@@ -50,7 +57,7 @@
 								document.getElementById("xhtmlrdfa").value = req.responseText;
 								xhtmlrdfa_backup = req.responseText;
 								update();
-								complete_page_loader.style.display = "none";
+								loader.style.display = "none";
 							}
 						}
 					}
@@ -98,15 +105,15 @@
 		}
 		
 		function guess_topic(id){
-			var guess_loader = document.getElementById("guess_loader");
-			guess_loader.style.display = "block";
 			var index = id.split("\_")[1];
+			var guess_loader = document.getElementById("guessloader_"+index);
+			guess_loader.style.display = "block";
 			var rdf_url = document.getElementById("rdfurl_"+index).value;
 			var req1 = null;
 			if(window.XMLHttpRequest){
             //alert("firefox");
                 req1 = new XMLHttpRequest();
-            }
+            } 	 	
             else if(window.ActiveXObject){
             //alert("ie");
                 req1 = new ActiveXObject("Microsoft.XMLHTTP");
@@ -163,6 +170,10 @@
 			guess_button.value = "Make a guess!";
 			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
+			var loader = document.createElement("img");
+			loader.id = "guessloader_" + form_count;
+			loader.src = "resource/ajax-loader.gif";
+			loader.style.display = "none";
 			new_form.appendChild(hr);
 			new_form.appendChild(label1);
 			new_form.appendChild(document.createElement("br"));
@@ -170,6 +181,7 @@
 			new_form.appendChild(document.createElement("br"));
 			new_form.appendChild(label2);
 			new_form.appendChild(guess_button);
+			new_form.appendChild(loader);
 			new_form.appendChild(document.createElement("br"));
 			new_form.appendChild(input2);
 			new_form.appendChild(document.createElement("br"));
@@ -205,6 +217,10 @@
 			guess_button.value = "Make a guess!";
 			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
+			var loader = document.createElement("img");
+			loader.id = "guessloader_" + form_count;
+			loader.src = "resource/ajax-loader.gif";
+			loader.style.display = "none";
 			new_form.appendChild(hr);
 			new_form.appendChild(label1);
 			new_form.appendChild(document.createElement("br"));
@@ -212,6 +228,7 @@
 			new_form.appendChild(document.createElement("br"));
 			new_form.appendChild(label2);
 			new_form.appendChild(guess_button);
+			new_form.appendChild(loader);
 			new_form.appendChild(document.createElement("br"));
 			new_form.appendChild(input2);
 			new_form.appendChild(document.createElement("br"));
@@ -243,9 +260,14 @@
 			guess_button.value = "Make a guess!";
 			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
+			var loader = document.createElement("img");
+			loader.id = "guessloader_" + topic_count;
+			loader.src = "resource/ajax-loader.gif";
+			loader.style.display = "none";
 			form.appendChild(input1);
 			form.appendChild(label);
 			form.appendChild(guess_button);
+			form.appendChild(loader);
 			form.appendChild(document.createElement("br"));
 			form.appendChild(input);
 			form.appendChild(document.createElement("br"));
