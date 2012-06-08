@@ -39,9 +39,9 @@ public class RDFaAnnotator {
 	private Map<String, Map> root;
 	private Map<String, String> prefixes;
 	private static String DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML+RDFa 1.0//EN\" \"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd\">";
-	private static String DEFAULT_HTML_ATTRIBUTES = "<HTML xmlns=\"http://www.w3.org/1999/xhtml\" version=\"XHTML+RDFa 1.0\" xml:lang=\"en\"";
-	private static String DEFAULT_META = "<META http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=UTF-8\"/>";
-	private static String UI = "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css\"><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></script><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js\"></script><script type=\"text/javascript\" src=\"javascript/rdfaui.js\"></script>";
+	private static String DEFAULT_HTML_ATTRIBUTES = "<html xmlns=\"http://www.w3.org/1999/xhtml\" version=\"XHTML+RDFa 1.0\" xml:lang=\"en\"";
+	private static String DEFAULT_META = "<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=UTF-8\"/>";
+	private static String UI = "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css\"/><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></script><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js\"></script><script type=\"text/javascript\" src=\"javascript/rdfaui.js\"></script>";
 	
 	public RDFaAnnotator(String rdf_url, String topic_uri){
 		this.topic_uri = topic_uri;

@@ -244,19 +244,25 @@
 				alert("Please make sure the XHTML+RDFa source code is not null");
 			}
 			else{
+				xhtmlrdfa_backup = xhtmlrdfa.value; //TODO striper is not working very well.
 				xhtmlrdfa.value = xhtmlrdfa.value.replace(/\[[^\[\]]+\]/g, "");
 				update();
 			}
 		}
 		
 		function show_indicators(){
-			var xhtmlrdfa = document.getElementById("xhtmlrdfa");
-			if(xhtmlrdfa.value == "" || xhtmlrdfa == null){
-				alert("Please make sure the XHTML+RDFa source code is not null");
+			if(confirm("This will distroy part of your preexisting annotations. Are you sure?")){
+				var xhtmlrdfa = document.getElementById("xhtmlrdfa");
+				if(xhtmlrdfa.value == "" || xhtmlrdfa == null){
+					alert("Please make sure the XHTML+RDFa source code is not null");
+				}
+				else{
+					xhtmlrdfa.value = xhtmlrdfa_backup;
+					update();
+				}
 			}
 			else{
-				xhtmlrdfa.value = xhtmlrdfa_backup;
-				update();
+				
 			}
 		}
 		
@@ -326,7 +332,7 @@
 			window.document.close();
 		}
 				
-		function copy_annotations(){
+		function copy_annotations(){//TODO this does not work and need fixed
 			var annotations = document.getElementById("xhtmlrdfa").value;
 			setClipboard(annotations);
 		}
@@ -388,7 +394,7 @@
 		   return null;
 		}
 		
-		function glean_triples(){
+/*		function glean_triples(){
 			var triples_loader = document.getElementById("triples_loader");
 			triples_loader.style.display = "block";
 			var format_element = document.getElementById("serialization");
@@ -401,7 +407,7 @@
 				req = new ActiveXObject("Microsoft.XMLHTTP");
 			}
 			var url = "/rdfasquare/baxtree/apis/TriplesGleaner";
-			var para = "rdfacontent="+encodeURIComponent(annotations)+"&baseuri="+""+"&format="+format;
+			var para = "rdfacontent="+encodeURIComponent(annotations)+"&baseuri="+""+"&format="+encodeURI(format);
 			if(req){
 				req.open("POST", url, true);
 				req.onreadystatechange = function () {
@@ -412,10 +418,19 @@
 						}
 					}
 				}
+				req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	            req.setRequestHeader("Content-length", para.length);
+	            //req.setRequestHeader("Connection", "close");
+	            req.send(para);
 			}
-			req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-            req.setRequestHeader("Content-length", para.length);
-            req.setRequestHeader("Connection", "close");
-            req.send(para);
-			
+		}
+*/
+		
+		function glean_triples(){
+			var glean_form = document.getElementById("glean_form"); 
+			glean_form.rdfacontent.value = document.getElementById("xhtmlrdfa").value;
+			glean_form.baseuri.value = ""; //TODO this needs to be improved. 
+			var format_element = document.getElementById("serialization"); 
+			glean_form.format.value = format_element.options[format_element.selectedIndex].text; 
+			glean_form.submit();
 		}

@@ -42,7 +42,7 @@ public class TemplateGenerater {
 //		if(topic_local_name != null && !topic_local_name.equals(""))
 //			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">"+topic_local_name+"</a><br/>\r\n\r\n";
 //		else
-			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\" target=\"dereference\">${topic.topicuri}</a><br/>\r\n\r\n";
+			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\" onclick=\"javascript:return false;\">${topic.topicuri}</a><br/>\r\n\r\n";
 		//topic ?p ?o
 		String preprouri = "";
 		String querystr = 	
@@ -91,13 +91,13 @@ public class TemplateGenerater {
 								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img></span><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
-								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else{
-								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 					}
 					/*@TODO need test
@@ -116,7 +116,7 @@ public class TemplateGenerater {
 					}
 					*/
 					else{
-						web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+						web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 					}
 					template_str += "<#if topic."+ pro_node_name +"??>\r\n" +
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
@@ -169,17 +169,17 @@ public class TemplateGenerater {
 								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img></span><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
-								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else{
-								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 					}
 					else{
-							web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
+							web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 					}
 					template_str += "<#if topic."+ pro_node_name +"??>\r\n" +
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
@@ -202,16 +202,16 @@ public class TemplateGenerater {
 	
 	public String getLiteralStyle(String property_name, String property_uri){
 //		property_name = "[[<span style=\"color:blue\">"+property_name+"</span>]]";
-		property_name = "[<a href=\""+property_uri+"\">" + property_name +"</a> &gt;&gt;] ";
+		property_name = "[<a href=\""+property_uri+"\" onclick=\"javascript:return false;\">" + property_name +"</a> &gt;&gt;] ";
 		return property_name;
 	}
 	
 	public String getResourceStyle(String property_name, String property_uri, boolean rel_flag){
 //		property_name = "{{<span style=\"color:green\">"+property_name+"</span>}}";
 		if(rel_flag)
-			property_name = "[<a href=\""+property_uri+"\">" + property_name +"</a> &gt;&gt;] ";
+			property_name = "[<a href=\""+property_uri+"\" onclick=\"javascript:return false;\">" + property_name +"</a> &gt;&gt;] ";
 		else
-			property_name = "[<a href=\""+property_uri+"\">" + property_name +"</a> &lt;&lt;] ";
+			property_name = "[<a href=\""+property_uri+"\" onclick=\"javascript:return false;\">" + property_name +"</a> &lt;&lt;] ";
 		return property_name;
 	}
 	

@@ -11,12 +11,20 @@ $(document).ready(function() {
 			$dialog.dialog('option', 'buttons', {"Save" : function(){	
 																		original.innerHTML = $("#rawcodeupdate").val(); 
 																		$(this).dialog("close");
-																		$(this).dialog("distroy");
 																		$("#dialog").remove();
-																		parent.document.getElementById("xhtmlrdfa").value = document.documentElement.innerHTML;
+																		var document_src = "";
+																		if(window.XMLHttpRequest){
+																			var serializer = new XMLSerializer();
+																			document_src = serializer.serializeToString(document);
+																		}
+																		else if(window.ActiveXObject){
+																			document_src = document.documentElement.outerHTML;  
+																		}
+																		//alert(document_src);
+																		parent.document.getElementById("xhtmlrdfa").value = document_src;/*TODO this does not contain the whole page content (e.g., no doctype, no html tag)*/
 																		//alert(document.documentElement.innerHTML);
 																	}, 
-												"Cancel" : function(){$(this).dialog("close");$(this).dialog("distroy");$("#dialog").remove();}});
+												"Cancel" : function(){$(this).dialog("close");$("#dialog").remove();}});
 			$dialog.dialog('open');
 		});
 	});

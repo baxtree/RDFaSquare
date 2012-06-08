@@ -48,7 +48,7 @@ e.g.,
 			<label>XHTML+RDFa source code:</label>
 			<textarea id="xhtmlrdfa"  onKeyUp="update();" onMouseup="update();"></textarea>
 			<button id="strip" onclick="strip_indicators();">strip indicators</button>
-			<button id="showindicator" onclick="show_indicators();">show indicators</button>
+			<button id="showindicator" onclick="show_indicators();">before last striping</button>
 			<div id="tip">PS: Indicators in the form of [info: property] are used for offering additional infomation about the extracted items. You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
 		</div>
 		<div id="previewpage">
@@ -56,14 +56,20 @@ e.g.,
 			<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe>
 			<button id="copy" onclick="copy_annotations();">copy source to clipboard</button><br/>
 			<select id="serialization">
-				<option value="0" selected="selected">RDF/XML</option>
-				<option value="1">RDF/XML-ABBREV</option>
-				<option value="2">N-TRIPLE</option>
-				<option value="3">TURTLE</option>
-				<option value="4">N3</option>
-				<!-- option value="5">JSON</option-->
+				<option value="0" selected="selected">XHTML + RDFa</option>
+				<option value="1">RDF/XML</option>
+				<option value="2">RDF/XML-ABBREV</option>
+				<option value="3">N-TRIPLE</option>
+				<option value="4">TURTLE</option>
+				<option value="5">N3</option>
+				<!-- option value="6">JSON</option-->
 			</select>
-			<button id="glean" onclick="glean_triples();">glean triples</button><img id="triples_loader" src="resource/ajax-loader.gif" style="display:none"/>
+			<form id="glean_form" action="/rdfasquare/baxtree/apis/TriplesGleaner" method="POST" style="display:none;">
+				<input type="text" name="rdfacontent" value=""/>
+				<input type="text" name="baseuri" value=""/>
+				<input type="text" name="format" value=""/>
+			</form>
+			<button id="glean" onclick="glean_triples();">glean triples</button><!-- img id="triples_loader" src="resource/ajax-loader.gif" style="display:none"/-->
 		</div>
 		<div id="footer">
 			<div id="altnav">
