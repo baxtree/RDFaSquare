@@ -96,10 +96,10 @@ public class TemplateGenerater {
 						if(object_uri.indexOf(".") != -1)
 							index = object_uri.lastIndexOf(".");
 						String expension_name = object_uri.substring(index);
-						if(img_formats.indexOf(expension_name) != -1){
+						if(img_formats.indexOf(expension_name.toLowerCase()) != -1){
 								web_resource_tags = "<span class=\"rdfasnippet\"><img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" resource=\""+ this.topic_uri +"\" alt=\"\" width=\"200px\"></img></span><br/>\r\n";
 						}
-						else if(page_formats.indexOf(expension_name) != -1){
+						else if(page_formats.indexOf(expension_name.toLowerCase()) != -1){
 								web_resource_tags = "<span class=\"rdfasnippet\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
@@ -174,10 +174,10 @@ public class TemplateGenerater {
 						if(object_uri.indexOf(".") != -1)
 							index = object_uri.lastIndexOf(".");
 						String expension_name = object_uri.substring(index);
-						if(img_formats.indexOf(expension_name) != -1){
+						if(img_formats.indexOf(expension_name.toLowerCase()) != -1){
 								web_resource_tags = "<span class=\"rdfasnippet\"><img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" resource=\""+ this.topic_uri +"\" alt=\"\" width=\"200px\"></img></span><br/>\r\n";
 						}
-						else if(page_formats.indexOf(expension_name) != -1){
+						else if(page_formats.indexOf(expension_name.toLowerCase()) != -1){
 								web_resource_tags = "<span class=\"rdfasnippet\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" onclick=\"javascript:return false;\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
