@@ -65,13 +65,17 @@ public class RDFModelLoader {
 		return model;
 	}
 	
-	public static boolean isValidURL(String rdf_input){
-		rdf_input = rdf_input.replaceAll("^\\s+", "");
-		if(rdf_input.startsWith("http://")){
+	public static boolean isValidURL(String sample){
+		try{
+			URL url = new URL(sample);
+//			URLConnection con = url.openConnection();
 			return true;
 		}
-		else{
+		catch(MalformedURLException murle){
 			return false;
 		}
+//		catch(IOException ioe){
+//			return false;
+//		}
 	}
 }

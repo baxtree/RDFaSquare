@@ -1,5 +1,10 @@
 package RDFaAnnotator.main;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class voiDGenerater {
 	public static String getvoiDDIV(String topic_uri, String rdf_url){
 		String div = 	"<div about=\""+topic_uri+"\" xmlns:void=\"http://rdfs.org/ns/void#\" xmlns:dcterms=\"http://purl.org/dc/terms/\">" +

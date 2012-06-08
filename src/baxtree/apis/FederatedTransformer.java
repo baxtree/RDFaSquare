@@ -22,10 +22,11 @@ public class FederatedTransformer extends HttpServlet {
 		String topic_uris = request.getParameter("topicuris");
 		String rdf_urls = request.getParameter("rdfurls");
 		String type = request.getParameter("type");
-		String[] topics = topic_uris.substring(0, topic_uris.length()-1).split(",");
-		String[] rdfurls = rdf_urls.substring(0, rdf_urls.length()-1).split(",");
+		String[] topics = topic_uris.substring(0, topic_uris.length()-16).split(",rdfa2delimiter,");
+		String[] rdfurls = rdf_urls.substring(0, rdf_urls.length()-16).split(",rdfa2delimiter,");
 		FederatedRDFaAnnotator fa = new FederatedRDFaAnnotator();
 		for(int i = 0; i < topics.length; i++){
+			System.err.println(rdfurls[i]);
 			fa.addContextAndTopic(rdfurls[i], topics[i]);
 		}
 		response.setCharacterEncoding("UTF-8");

@@ -91,21 +91,12 @@ public class TemplateGenerater {
 								web_resource_tags = "<img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\"></img><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
-							if(object_local_name != null && !object_local_name.equals(""))
-								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">"+object_local_name+"</a><br/>\r\n";
-							else
 								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
-							if(object_local_name != null && !object_local_name.equals(""))
-								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">"+object_local_name+"</a><br/>\r\n";
-							else
 								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 						else{
-							if(object_local_name != null && !object_local_name.equals(""))
-								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">"+object_local_name+"</a><br/>\r\n";
-							else
 								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 					}
@@ -164,21 +155,12 @@ public class TemplateGenerater {
 								web_resource_tags = "<img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\"></img><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
-							if(object_local_name != null && !object_local_name.equals(""))
-								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">"+object_local_name+"</a><br/>\r\n";
-							else
 								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
-							if(object_local_name != null && !object_local_name.equals(""))
-								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">"+object_local_name+"</a><br/>\r\n";
-							else
 								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 						else{
-							if(object_local_name != null && !object_local_name.equals(""))
-								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">"+object_local_name+"</a><br/>\r\n";
-							else
 								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 					}

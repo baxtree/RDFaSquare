@@ -89,7 +89,10 @@ public class RDFaAnnotator {
 		if(RDFModelLoader.isValidURL(rdf_url))
 			this.model = RDFModelLoader.loadTriplesFromURL(this.rdf_url);
 		else
+		{
+			System.out.println(this.rdf_url);
 			this.model = RDFModelLoader.loadTriplesFromString(this.rdf_url);
+		}
 	}
 		
 	public void createMapTreeForTopicURI(){
@@ -233,7 +236,11 @@ public class RDFaAnnotator {
 			Template temp = cfg.getTemplate(template_name);
 			StringWriter sw = new StringWriter();
 			temp.process(root, sw);
-			String rdfa = LabelFinder.applyLabelToResource(this.model, sw.toString()) + voiDGenerater.getvoiDDIV(this.topic_uri, this.rdf_url)+ "\r\n\r\n";
+			String rdfa = "";
+			if(RDFModelLoader.isValidURL(this.rdf_url))
+				rdfa = LabelFinder.applyLabelToResource(this.model, sw.toString()) + voiDGenerater.getvoiDDIV(this.topic_uri, this.rdf_url)+ "\r\n\r\n";
+			else 
+				rdfa = LabelFinder.applyLabelToResource(this.model, sw.toString()) + "\r\n\r\n";
 			return rdfa;
 		} catch (TemplateException te) {
 			te.printStackTrace();
@@ -259,7 +266,11 @@ public class RDFaAnnotator {
 			StringWriter sw = new StringWriter();
 			temp.process(root, sw);
 //			System.out.println(sw.toString());
-			String rdfa = sw.toString() + voiDGenerater.getvoiDDIV(this.topic_uri, this.rdf_url) + "\r\n\r\n";
+			String rdfa = "";
+			if(RDFModelLoader.isValidURL(this.rdf_url))
+				rdfa = LabelFinder.applyLabelToResource(this.model, sw.toString()) + voiDGenerater.getvoiDDIV(this.topic_uri, this.rdf_url) + "\r\n\r\n";
+			else
+				rdfa = LabelFinder.applyLabelToResource(this.model, sw.toString()) + "\r\n\r\n";
 			return rdfa;
 		} catch (TemplateException te) {
 			te.printStackTrace();

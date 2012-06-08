@@ -20,7 +20,7 @@
 				var topicuris = document.getElementsByName("topicuri");
 				var topic_uri = "";
 				for(var i = 0; i < topicuris.length; i++){
-					topic_uri += topicuris[i].value + ",";
+					topic_uri += topicuris[i].value + ",rdfa2delimiter,";
 				}	
 				url = "/rdfasquare/baxtree/apis/SingleCotextTransformer";
 				para = "rdfurl="+encodeURIComponent(rdfurl)+"&topicuris="+encodeURIComponent(topic_uri)+"&type="+type;
@@ -29,12 +29,12 @@
 				var rdfurls = document.getElementsByName("rdfurl");
 				var rdf_url = "";
 				for(var i = 0; i < rdfurls.length; i++){
-					rdf_url += rdfurls[i].value + ",";
+					rdf_url += rdfurls[i].value + ",rdfa2delimiter,";
 				}
 				var topicuris = document.getElementsByName("topicuri");
 				var topic_uri = "";
 				for(var i = 0; i < topicuris.length; i++){
-					topic_uri += topicuris[i].value + ",";
+					topic_uri += topicuris[i].value + ",rdfa2delimiter,";
 				}	
 				url = "/rdfasquare/baxtree/apis/FederatedTransformer";
 				para = "rdfurls="+encodeURIComponent(rdf_url)+"&topicuris="+encodeURIComponent(topic_uri)+"&type="+type;

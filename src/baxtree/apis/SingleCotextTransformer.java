@@ -20,8 +20,8 @@ public class SingleCotextTransformer extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {
 		String topic_uris = request.getParameter("topicuris");
-		topic_uris = topic_uris.substring(0, topic_uris.length()-1);
-		String[] topicuris = topic_uris.split(",");
+		topic_uris = topic_uris.substring(0, topic_uris.length()-16);
+		String[] topicuris = topic_uris.split(",rdfa2delimiter,");
 		String rdf_url = request.getParameter("rdfurl");
 		String type = request.getParameter("type");
 		RDFaAnnotator rdfaa = new RDFaAnnotator(rdf_url, "");
