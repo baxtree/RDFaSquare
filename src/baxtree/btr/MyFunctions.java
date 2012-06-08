@@ -6,6 +6,17 @@ import java.util.Arrays;
  *
  */
 public class MyFunctions {
+	
+	private static String UI = "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css\"/><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></script><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js\"></script><script type=\"text/javascript\" src=\"javascript/rdfaui.js\"></script>";
+	
+	public static String cleanBeforeExporting(String rdfa_content){
+		rdfa_content = rdfa_content.replaceAll(UI, "");
+		rdfa_content = rdfa_content.replaceAll(" onclick=\"javascript:return false;\"", "");
+		rdfa_content = rdfa_content.replaceAll("<iframe name=\"dereference\" style=\"display:none\"></iframe>", "");
+		rdfa_content = rdfa_content.replaceAll("<span class=\"rdfasnippet\" style=\"width:80%\">", "<span>");
+		System.out.println(rdfa_content);
+		return rdfa_content;
+	}
 
 	/**
 	 * This method sorts an int array

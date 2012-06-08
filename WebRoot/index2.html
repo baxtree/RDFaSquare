@@ -11,23 +11,23 @@
 </head>
 <body>
 	<div id="container">
-		<div id="navigator">
-			<ul id="navul">
-				<!--li><a href="template.html">Template Editor</a>&nbsp;-&nbsp;</li-->
-				<li><a href="index.html">URI Input</a>&nbsp;-&nbsp;</li>
-				<li><a href="about.html">About</a>&nbsp;-&nbsp;</li>
-				<li><a href="contact.html">Contact</a>&nbsp;-&nbsp;</li>
-				<li><a href="api.html">API</a></li>
-			</ul>
-		</div>
 		<div id="header">
 			<h1><a href="index.html">RDFa&sup2;</a></h1>
 			<h3><span>RDFa a</span>nnotator for general purposes.</h3>
 		</div>
+		<div id="tabs7">
+			<ul>
+				<li><a href="index.html"><span>By Context URI</span></a></li>
+				<li id="current"><a href="index2.html"><span>Input Context Directly</span></a></li>
+				<li><a href="about.html"><span>About</span></a></li>
+				<li><a href="contact.html"><span>Contact</span></a></li>
+				<li><a href="api.html"><span>API</span></a></li>
+			</ul>
+		</div>
 		<div id="forms">
 			<form id="firstform">
 				<label>RDF context from direct input: </label><br/>
-				<textarea id="rdfurl_0" name="rdfurl" rows=20 cols=80 onfocus="javascript: this.select();">
+				<textarea id="rdfurl_0" name="rdfurl" rows=15 cols=80 onfocus="javascript: this.select();">
 e.g.,
 &lt;?xml version="1.0"?&gt;
 &lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -42,23 +42,28 @@ e.g.,
 			</form>
 		</div>
 		<div id="execution">
-			<button id="addtopic" value="addtopic" onclick="add_topic();">Add Topics!</button><button id="addtopiccontext" value="addtopiccontext" onclick="add_input_context();">Add Contexts!</button><br/>
+			<button id="addtopic" value="addtopic" onclick="add_topic();">Add Topics!</button><button id="addtopiccontext" value="addtopiccontext" onclick="add_url_context();">Add Contexts!</button><br/>
+			<p/>
 			<hr/>
-			<button id="submit" value="submit" onclick="transform('complete');">Get the Complete Page</button><img id="complete_page_loader" src="resource/ajax-loader.gif" style="display:none"/><button id="submit" value="submit" onclick="transform('partial');">Get the DIV Snippet</button><img id="div_snippet_loader" src="resource/ajax-loader.gif" style="display:none"/><br/>
-			<hr/>
-			<button id="submit" value="submit" onclick="vocab_transform('complete');">Publish As a Vocabulary</button><img id="vocabulary_loader" src="resource/ajax-loader.gif" style="display:none"/>
+			Publishing type:<br/>
+			<select id="publishingtype">
+				<option value="0" selected="selected">Complete Page</option>
+				<option value="1">DIV Snippet</option>
+				<option value="2">Vocabulary</option>
+			</select>
+			<button id="submit" value="submit" onclick="publish();">GO!</button><img id="publish_loader" src="resource/ajax-loader.gif" style="display:none"/>
 		</div>	
-		<div id="markup">
+		<div id="markup" style="display:none">
 			<label>XHTML+RDFa source code:</label>
 			<textarea id="xhtmlrdfa"  onKeyUp="update();" onMouseup="update();"></textarea>
 			<button id="strip" onclick="strip_indicators();">strip indicators</button>
 			<button id="showindicator" onclick="show_indicators();">before last striping</button>
 			<div id="tip">PS: Indicators in the form of [info: property] are used for offering additional infomation about the extracted items. You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
 		</div>
-		<div id="previewpage">
+		<div id="previewpage" style="display:none">
 			<label>Page preview:</label>
 			<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe>
-			<button id="copy" onclick="copy_annotations();">copy source to clipboard</button><br/>
+			<!--button id="copy" onclick="copy_annotations();">copy source to clipboard</button><br/-->
 			<select id="serialization">
 				<option value="0" selected="selected">XHTML + RDFa</option>
 				<option value="1">RDF/XML</option>

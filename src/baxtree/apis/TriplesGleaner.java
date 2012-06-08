@@ -1,9 +1,6 @@
 package baxtree.apis;
 
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
 import java.io.StringReader;
 
 import javax.servlet.ServletException;
@@ -12,20 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import baxtree.btr.MyFunctions;
+
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class TriplesGleaner extends HttpServlet {
-	
-	private static String UI = "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css\"/><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js\"></script><script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js\"></script><script type=\"text/javascript\" src=\"javascript/rdfaui.js\"></script>";
-	
-	private String cleanBeforeExporting(String rdfa_content){
-		rdfa_content = rdfa_content.replaceAll(UI, "");
-		rdfa_content = rdfa_content.replaceAll(" onclick=\"javascript:return false;\"", "");
-		rdfa_content = rdfa_content.replaceAll("<iframe name=\"dereference\" style=\"display:none\"></iframe>", "");
-		System.out.println(rdfa_content);
-		return rdfa_content;
-	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {
@@ -46,7 +35,7 @@ public class TriplesGleaner extends HttpServlet {
 //			response.addHeader("Content-Type", "application/octet-stream");
 			response.setHeader("Content-Disposition", "attachment; filename=annotated.html");
 			//DataInputStream in = new DataInputStream(new InputStream());
-			rdfa_content = cleanBeforeExporting(rdfa_content);
+			rdfa_content = MyFunctions.cleanBeforeExporting(rdfa_content);
 			op.write(rdfa_content.getBytes());
 			op.flush();
 			op.close();

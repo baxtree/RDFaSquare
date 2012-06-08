@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import baxtree.btr.BNodeAltFinder;
 import baxtree.btr.ImportanceCalculator;
 import baxtree.btr.LabelFinder;
+import baxtree.btr.MyFunctions;
 import baxtree.btr.NodeStatist;
 import baxtree.btr.URINormalizer;
 
@@ -21,7 +21,6 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 
@@ -329,7 +328,6 @@ public class RDFaAnnotator {
 			return template_str;
 		}
 		else if(type.equalsIgnoreCase("partial")){
-			template_str += UI;
 			template_str += "<div ";
 			Set<String> pres = prefixes.keySet();
 			String temp = "";
@@ -339,6 +337,9 @@ public class RDFaAnnotator {
 			template_str += temp + ">\r\n";
 			template_str += body_content;
 			template_str += "</div>";
+			template_str = template_str.replaceAll(">[^<]+?<", "><");
+			template_str = template_str.replaceAll("<img ", "<span ").replaceAll(" src=\"", " resource=\"").replaceAll(" alt=\"\" width=\"100px\">", ">").replaceAll("</img>", "</span>");
+			template_str = MyFunctions.cleanBeforeExporting(template_str);
 			return template_str;
 		}
 		else{

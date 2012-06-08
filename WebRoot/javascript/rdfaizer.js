@@ -1,15 +1,28 @@
 		var xhtmlrdfa_backup = "";
 		
+		String.prototype.startsWith = function(str){
+			return (this.match("^"+str)==str);
+		}
+		
+		function publish(){
+			document.getElementById("markup").style.display = "block";
+			document.getElementById("previewpage").style.display = "block";
+			var selection = document.getElementById("publishingtype");
+			var pubtype = selection.options[selection.selectedIndex].value;
+			if(pubtype == 0){
+				transform("complete");
+			}
+			else if(pubtype == 1){
+				transform("partial");
+			}
+			else if(pubtype == 2){
+				vocab_transform("complete");
+			}
+		}
+		
 		function transform(type) {
-			if(type == "complete"){
-				var loader = document.getElementById("complete_page_loader");
-				loader.style.display = "block";
-			}
-			else if(type == "partial"){
-				var loader = document.getElementById("div_snippet_loader");
-				loader.style.display = "block";
-			}
-			
+			var loader = document.getElementById("publish_loader");
+			loader.style.display = "block";
 			var flag = document.getElementById("addtopiccontext").disabled;
 			var req = null;
 			var url = "";
@@ -69,7 +82,7 @@
 		}
 		
 		function vocab_transform(type) {
-			var vocabulary_loader = document.getElementById("vocabulary_loader");
+			var vocabulary_loader = document.getElementById("publish_loader");
 			vocabulary_loader.style.display = "block";
 			var rdfurl = document.getElementById("rdfurl_0").value;
 			var para = "";
@@ -106,37 +119,42 @@
 		
 		function guess_topic(id){
 			var index = id.split("\_")[1];
-			var guess_loader = document.getElementById("guessloader_"+index);
-			guess_loader.style.display = "block";
 			var rdf_url = document.getElementById("rdfurl_"+index).value;
-			var req1 = null;
-			if(window.XMLHttpRequest){
-            //alert("firefox");
-                req1 = new XMLHttpRequest();
-            } 	 	
-            else if(window.ActiveXObject){
-            //alert("ie");
-                req1 = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-			var url = "/rdfasquare/baxtree/apis/TopicURIGuesser";
-			var para = "rdfurl=" + encodeURIComponent(rdf_url) + "&index=" + index;
-			if(req1){
-				req1.open("POST", url, true);
-                req1.onreadystatechange = function(){
-                    if(req1.readyState == 4){
-                        if(req1.status == 200){
-							var div_suggestion = document.getElementById("suggestion_"+index);
-							div_suggestion.innerHTML = req1.responseText;
-							div_suggestion.style.display = "block";
-							guess_loader.style.display = "none";
+			if(!rdf_url.startsWith("http://") || rdf_url == "" || rdf_url == null || rdf_url == undefined){
+				alert("Please input the RDF context file URL first!");
+			}
+			else{
+				var guess_loader = document.getElementById("guessloader_"+index);
+				guess_loader.style.display = "block";
+				var req1 = null;
+				if(window.XMLHttpRequest){
+	            //alert("firefox");
+	                req1 = new XMLHttpRequest();
+	            } 	 	
+	            else if(window.ActiveXObject){
+	            //alert("ie");
+	                req1 = new ActiveXObject("Microsoft.XMLHTTP");
+	            }
+				var url = "/rdfasquare/baxtree/apis/TopicURIGuesser";
+				var para = "rdfurl=" + encodeURIComponent(rdf_url) + "&index=" + index;
+				if(req1){
+					req1.open("POST", url, true);
+	                req1.onreadystatechange = function(){
+	                    if(req1.readyState == 4){
+	                        if(req1.status == 200){
+								var div_suggestion = document.getElementById("suggestion_"+index);
+								div_suggestion.innerHTML = req1.responseText;
+								div_suggestion.style.display = "block";
+								guess_loader.style.display = "none";
+							}
 						}
 					}
 				}
-			}
-			req1.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	        req1.setRequestHeader("Content-length", para.length);
-	        req1.setRequestHeader("Connection", "close");
-	        req1.send(para);
+				req1.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		        req1.setRequestHeader("Content-length", para.length);
+		        req1.setRequestHeader("Connection", "close");
+		        req1.send(para);
+		    }
 		}
 		
 		function select_topic(uri, index){

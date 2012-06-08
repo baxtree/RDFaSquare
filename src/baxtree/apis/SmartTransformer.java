@@ -9,18 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import RDFaAnnotator.main.FederatedRDFaAnnotator;
-import RDFaAnnotator.main.RDFaAnnotator;
+import baxtree.btr.MyFunctions;
 
 public class SmartTransformer extends HttpServlet{
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws IOException, ServletException {
-		String rdf_url = request.getParameter("rdfurl");
-		FederatedRDFaAnnotator fa = new FederatedRDFaAnnotator();
-		fa.addContextAndTopic(rdf_url, "");
-		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print(fa.generateRDFa("complete"));
+		try{
+			String rdf_url = request.getParameter("rdfurl");
+			FederatedRDFaAnnotator fa = new FederatedRDFaAnnotator();
+			fa.addContextAndTopic(rdf_url, "");
+			response.setCharacterEncoding("UTF-8");
+			out.print(MyFunctions.cleanBeforeExporting(fa.generateRDFa("complete")));
+		}
+		catch(RuntimeException re){
+			out.print("ERROR: RDFa<sup>2</sup> can not glean any triples from this document. <br/>");
+			out.print("Please make sure the document is eithor a valid RDF or RDFa format.");
+		}
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
