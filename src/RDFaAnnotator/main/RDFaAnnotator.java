@@ -2,12 +2,11 @@ package RDFaAnnotator.main;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import baxtree.btr.BNodeAltFinder;
 import baxtree.btr.ImportanceCalculator;
 import baxtree.btr.LabelFinder;
 import baxtree.btr.NodeStatist;
@@ -22,6 +21,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 
@@ -164,6 +164,29 @@ public class RDFaAnnotator {
 //					uee.printStackTrace();
 //				}
 			}
+			/*@TODO need test
+			else if(object.isAnon()){
+				Resource obj = (Resource) object;
+				String alt = BNodeAltFinder.getAltForBlankNode(obj, model);
+				if(alt.indexOf(";;") != -1){
+					String[] altele = alt.split(";;");
+					multivalues.put("bnojbpro", URINormalizer.normalize(altele[0]));
+					multivalues.put("bnuri", URINormalizer.normalize(altele[1]));
+				}
+				else if(alt.indexOf("::") != -1){
+					String[] altele = alt.split("::");
+					multivalues.put("bndatpro", URINormalizer.normalize(altele[0]));
+					multivalues.put("bnlex", altele[1]);
+					if(altele[2] != null && !altele[2].equals("")){
+						multivalues.put("bndat", altele[2]);
+					}
+					if(altele[3] != null && !altele[3].equals("")){
+						multivalues.put("bnlan", altele[3]);
+					}
+				}
+					
+			}
+			*/
 		}
 		
 		

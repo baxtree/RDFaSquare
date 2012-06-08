@@ -100,8 +100,23 @@ public class TemplateGenerater {
 								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 						}
 					}
+					/*@TODO need test
+					else if(object.isAnon()){
+						web_resource_tags = "<a rel=\""+ pro_curie_name +"\">" +
+											"	<#if topic."+ pro_node_name +"[key].bnojbpro??>" +
+											"		<#if topic."+ pro_node_name +"[key].bnuri??>" +
+											"			<a rel=\"${topic."+ pro_node_name +"[key].bnojbpro}\" resource=\"${topic."+ pro_node_name +"[key].bnuri}\">${topic."+ pro_node_name +"[key].bnuri}</a><br/>\r\n" +
+											"		</#if>" +
+											"	</#if>" +
+											"	<#if topic."+ pro_node_name +"[key].bndatpro??>" +
+											"		<#if topic."+ pro_node_name +"[key].bnlex??>" +
+											"			<a property=\"${topic."+ pro_node_name +"[key].bndatpro}\"<#if topic."+ pro_node_name +"[key].bndat??> datatype=\"${topic."+ pro_node_name +"[key].bndat}\"</#if><#if topic."+ pro_node_name +"[key].bnlan??> xml:lang=\"${topic."+ pro_node_name +"[key].bnlan}\"</#if>></a><br/>\r\n" +
+											"		</#if>" +
+											"	</#if>";
+					}
+					*/
 					else{
-							web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+						web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
 					}
 					template_str += "<#if topic."+ pro_node_name +"??>\r\n" +
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
@@ -113,7 +128,6 @@ public class TemplateGenerater {
 								"</#if>\r\n\r\n";
 				}
 			}
-			
 		}
 		
 		preprouri = "";
