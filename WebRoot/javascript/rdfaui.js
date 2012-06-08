@@ -26,7 +26,8 @@
 																	}, 
 												"Cancel" : function(){$(this).dialog("close");$("#dialog").remove();}});
 			$dialog.dialog('option', 'width', 400);
-			$dialog.dialog('open');
+			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
+			$dialog.dialog('open'); 
 		});
 	});
 	
@@ -65,6 +66,7 @@
 								});
 								$dialog.dialog('option', 'buttons', {"Confirm" : function(){$(this).dialog("close");$("#topicnodeselection").remove();}});
 								$dialog.dialog('option', 'width', 460);
+								$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
 								$dialog.dialog('open');
 								guess_loader.style.display = "none";
 							}
@@ -108,10 +110,95 @@
 							});
 							$dialog.dialog('option', 'buttons', {"Apply this template" : function(){$(this).dialog("close");$("#topicnodeselection").remove();applyTemplate();}});
 							$dialog.dialog('option', 'width', 800);
+							$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
 							$dialog.dialog('open');					
 						}
 					}
 				}
 			}
 			req.send(null);
+		}
+		
+		function show_editor(){
+			var $dialog_node = $('<div id="editor"><textarea id="richeditor" rows="10" cols="70">'+$('#xhtmlrdfa').val()+'</textarea></div>');
+			var $dialog = $dialog_node
+							.dialog({
+									modal: true,
+									autoOpen: false,
+									title: 'Free Editing',
+							});
+			var editor = CKEDITOR.replace( 'richeditor',
+			{
+				fullPage : true,
+				
+				/*XHTML_CSS
+				contentsCss : 'ckeditor/_samples/assets/output_xhtml.css',
+				coreStyles_bold	: { element : 'span', attributes : {'class': 'Bold'} },
+				coreStyles_italic	: { element : 'span', attributes : {'class': 'Italic'}},
+				coreStyles_underline	: { element : 'span', attributes : {'class': 'Underline'}},
+				coreStyles_strike	: { element : 'span', attributes : {'class': 'StrikeThrough'}, overrides : 'strike' },
+				coreStyles_subscript : { element : 'span', attributes : {'class': 'Subscript'}, overrides : 'sub' },
+				coreStyles_superscript : { element : 'span', attributes : {'class': 'Superscript'}, overrides : 'sup' },
+				font_names : 'Comic Sans MS/FontComic;Courier New/FontCourier;Times New Roman/FontTimes',
+				font_style :
+				{
+						element		: 'span',
+						attributes		: { 'class' : '#(family)' },
+						overrides	: [ { element : 'span', attributes : { 'class' : /^Font(?:Comic|Courier|Times)$/ } } ]
+				},
+				fontSize_sizes : 'Smaller/FontSmaller;Larger/FontLarger;8pt/FontSmall;14pt/FontBig;Double Size/FontDouble',
+				fontSize_style :
+					{
+						element		: 'span',
+						attributes	: { 'class' : '#(size)' },
+						overrides	: [ { element : 'span', attributes : { 'class' : /^Font(?:Smaller|Larger|Small|Big|Double)$/ } } ]
+					} ,
+				colorButton_enableMore : false,
+				colorButton_colors : 'FontColor1/FF9900,FontColor2/0066CC,FontColor3/F00',
+				colorButton_foreStyle :
+					{
+						element : 'span',
+						attributes : { 'class' : '#(color)' },
+						overrides	: [ { element : 'span', attributes : { 'class' : /^FontColor(?:1|2|3)$/ } } ]
+					},
+				colorButton_backStyle :
+					{
+						element : 'span',
+						attributes : { 'class' : '#(color)BG' },
+						overrides	: [ { element : 'span', attributes : { 'class' : /^FontColor(?:1|2|3)BG$/ } } ]
+					},
+				indentClasses : ['Indent1', 'Indent2', 'Indent3'],
+				justifyClasses : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyFull' ],
+				stylesSet :
+						[
+							{ name : 'Strong Emphasis', element : 'strong' },
+							{ name : 'Emphasis', element : 'em' },
+
+							{ name : 'Computer Code', element : 'code' },
+							{ name : 'Keyboard Phrase', element : 'kbd' },
+							{ name : 'Sample Text', element : 'samp' },
+							{ name : 'Variable', element : 'var' },
+
+							{ name : 'Deleted Text', element : 'del' },
+							{ name : 'Inserted Text', element : 'ins' },
+
+							{ name : 'Cited Work', element : 'cite' },
+							{ name : 'Inline Quotation', element : 'q' }
+						]
+				*/
+				
+			});
+			$dialog.dialog('option', 'buttons', {"Save" : 	function(){
+																$("#xhtmlrdfa").val(editor.getData()); 
+																editor.destroy();
+																editor = null;
+																$("richeditor").remove();
+																$("editor").remove();
+																update();
+																$(this).dialog("close");
+																$("#dialog").remove();
+														 	}});
+			$dialog.dialog('option', 'width', 900);
+			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
+			$dialog.dialog('open');	
 		}

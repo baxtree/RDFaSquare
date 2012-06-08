@@ -45,7 +45,7 @@
 		function transform(type) {
 			var loader = document.getElementById("publish_loader");
 			loader.style.display = "block";
-			var flag = document.getElementById("addtopiccontext").disabled;
+			var flag = document.getElementById("addtopic").style.display;
 			var req = null;
 			var url = "";
 			var para = "";
@@ -57,7 +57,7 @@
             //alert("ie");
                 req = new ActiveXObject("Microsoft.XMLHTTP");
             }
-			if(flag == true){
+			if(flag != "none"){
 				var rdfurl = document.getElementById("rdfurl_0").value;
 				var topicuris = document.getElementsByName("topicuri");
 				var topic_uri = "";
@@ -67,7 +67,7 @@
 				url = "/rdfasquare/baxtree/apis/SingleCotextTransformer";
 				para = "rdfurl="+encodeURIComponent(rdfurl)+"&topicuris="+encodeURIComponent(topic_uri)+"&type="+type;
 			}
-			else if(flag == false){
+			else{
 				var rdfurls = document.getElementsByName("rdfurl");
 				var rdf_url = "";
 				for(var i = 0; i < rdfurls.length; i++){
@@ -81,9 +81,7 @@
 				url = "/rdfasquare/baxtree/apis/FederatedTransformer";
 				para = "rdfurls="+encodeURIComponent(rdf_url)+"&topicuris="+encodeURIComponent(topic_uri)+"&type="+type;
 	        }
-	        else{
-	        	alert("error!")
-	        }
+	      
 	        if(req){
 	                req.open("POST", url, true);
 	                req.onreadystatechange = function(){
@@ -210,6 +208,7 @@
 			div_suggestion.id = "suggestion_"+form_count;
 			div_suggestion.style.display = "none";
 			var guess_button = document.createElement("input");
+			guess_button.setAttribute("class", "guessbutton");
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
@@ -257,6 +256,7 @@
 			div_suggestion.id = "suggestion_"+form_count;
 			div_suggestion.style.display = "none";
 			var guess_button = document.createElement("input");
+			guess_button.setAttribute("class", "guessbutton");
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
@@ -302,6 +302,7 @@
 			input.onfocus = "javascript: this.select();";
 			input.size = 100;
 			var guess_button = document.createElement("input");
+			guess_button.setAttribute("class", "guessbutton");
 			guess_button.id = "guess_"+topic_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";

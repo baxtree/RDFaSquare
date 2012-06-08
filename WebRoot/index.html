@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="javascript/rdfaui.js"></script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -28,9 +29,9 @@
 		</div>
 		<div id="forms">
 			<form id="firstform">
-				<div id="flag">
+				<!-- div id="flag">
 					RDFa&sup2; provides you with unprecedented experience of generating Web pages with <a href="http://www.w3.org/TR/2008/REC-rdfa-syntax-20081014/">RDFa</a>.
-				</div>
+				</div-->
 				<label>RDF context file URL: </label><br/>
 				<input id="rdfurl_0" type="text" name="rdfurl" value="e.g., your FOAF file URL (http://www.example.org/foaf.rdf)" onfocus="javascript: this.select();" size="100"/><br/>
 				<label>Topic URI: </label><input class="guessbutton" type="button" value="Make a guess!" id="guess_0" onclick="guess_topic_with_ui(this.id);this.blur();"/> <img id="guessloader_0" src="resource/ajax-loader.gif" style="display:none"/><br/>
@@ -51,8 +52,8 @@
 			<span class="button"><a id="strip" href="javascript:" onclick="publish();"><span style="background: #fff; padding: 5px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">GO!</span></span></a></span><img id="publish_loader" src="resource/ajax-loader.gif" style="display:none"/>
 		</div>	
 		<div id="markup" style="display:none">
-			<label>XHTML+RDFa source code:</label>
-			<textarea id="xhtmlrdfa"  onKeyUp="update();" onMouseup="update();"></textarea>
+			<label>XHTML+RDFa source code:</label><input class="guessbutton" type="button" value="Show Editor" id="show_editor" onclick="show_editor();this.blur();"></input>
+			<textarea id="xhtmlrdfa" readonly="true" disabled="true" onKeyUp="update();" onMouseup="update();"></textarea>
 			<span class="button"><a id="strip" href="javascript:" onclick="strip_indicators();this.blur();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">strip indicators</span></span></a></span>
 			<span class="button"><a id="showindicator" href="javascript:" onclick="show_indicators();this.blur();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">before last striping</span></span></a></span>
 			<div id="tip">PS: Indicators in the form of [property &gt;&gt;] or [property &lt;&lt;] are used for indicating properties and the directions of triple elements (&gt;&gt; means SPO and &lt;&lt; means OPS). You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
