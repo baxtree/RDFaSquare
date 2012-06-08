@@ -72,7 +72,7 @@ public class TemplateGenerater {
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
 								"		<#if topic."+ pro_node_name +"[key].val??>\r\n" +
 								getLiteralStyle(pro_local_name, preprouri)+
-								"			<span property=\""+ pro_curie_name +"\">${topic."+ pro_node_name +"[key].val}</span><br/>\r\n" +
+								"			<span property=\""+ pro_curie_name +"\"<#if topic."+ pro_node_name +"[key].dat??> datatype=\"${topic."+ pro_node_name +"[key].dat}\"</#if><#if topic."+ pro_node_name +"[key].lan??> xml:lang=\"${topic."+ pro_node_name +"[key].lan}\"</#if>>${topic."+ pro_node_name +"[key].val}</span><br/>\r\n" +
 								"		</#if>\r\n" +
 								"	</#list>\r\n" +
 								"</#if>\r\n\r\n";

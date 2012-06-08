@@ -148,7 +148,11 @@ public class RDFaAnnotator {
 			property_node.put("value_"+count, multivalues);
 			if(object.isLiteral()){
 				Literal literal = (Literal) object;
-				multivalues.put("val", literal.getValue().toString());
+				multivalues.put("val", literal.getLexicalForm());
+				if(literal.getDatatypeURI() != null && !literal.getDatatypeURI().equals(""))
+					multivalues.put("dat", literal.getDatatypeURI());
+				if(literal.getLanguage() != null && !literal.getLanguage().equals(""))
+					multivalues.put("lan", literal.getLanguage());
 			}
 			else if(object.isResource()){
 				Resource resource = (Resource) object;
