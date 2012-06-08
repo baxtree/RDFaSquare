@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd"> 
+<web-app> 
+	<servlet>
+    	<servlet-name>FoafTransformer</servlet-name>
+    	<servlet-class>baxtree.apis.FoafTransformer</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>FoafTransformer</servlet-name>
+    	<url-pattern>/baxtree/apis/FoafTransformer</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>SmartFoafTransformer</servlet-name>
+    	<servlet-class>baxtree.apis.SmartFoafTransformer</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>SmartFoafTransformer</servlet-name>
+    	<url-pattern>/baxtree/apis/SmartFoafTransformer</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>FederatedTransformer</servlet-name>
+    	<servlet-class>baxtree.apis.FederatedTransformer</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>FederatedTransformer</servlet-name>
+    	<url-pattern>/baxtree/apis/FederatedTransformer</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>TemplateCreator</servlet-name>
+    	<servlet-class>baxtree.apis.TemplateCreator</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>TemplateCreator</servlet-name>
+    	<url-pattern>/baxtree/apis/TemplateCreator</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>TemplateApplier</servlet-name>
+    	<servlet-class>baxtree.apis.TemplateApplier</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>TemplateApplier</servlet-name>
+    	<url-pattern>/baxtree/apis/TemplateApplier</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>TopicURIGuesser</servlet-name>
+    	<servlet-class>baxtree.apis.TopicURIGuesser</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>TopicURIGuesser</servlet-name>
+    	<url-pattern>/baxtree/apis/TopicURIGuesser</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>SmartTransformer</servlet-name>
+    	<servlet-class>baxtree.apis.SmartTransformer</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>SmartTransformer</servlet-name>
+    	<url-pattern>/baxtree/apis/SmartTransformer</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>VocabTransformer</servlet-name>
+    	<servlet-class>baxtree.apis.VocabTransformer</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>VocabTransformer</servlet-name>
+    	<url-pattern>/baxtree/apis/VocabTransformer</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>SingleCotextTransformer</servlet-name>
+    	<servlet-class>baxtree.apis.SingleCotextTransformer</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>SingleCotextTransformer</servlet-name>
+    	<url-pattern>/baxtree/apis/SingleCotextTransformer</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>TriplesGleaner</servlet-name>
+    	<servlet-class>baxtree.apis.TriplesGleaner</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+   		<servlet-name>TriplesGleaner</servlet-name>
+    	<url-pattern>/baxtree/apis/TriplesGleaner</url-pattern>
+  	</servlet-mapping>
+  	
+ </web-app>

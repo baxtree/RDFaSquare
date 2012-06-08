@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>FOAF RDFa Generator</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<!-- script type="text/javascript" src="syntaxhighlighter/src/shCore.js"></script>
+	<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.js"></script>
+	<link href="syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	     SyntaxHighlighter.all();
+	</script-->
+	<script type="text/javascript">
+		function transform() {
+			var foaf_url = document.getElementById("foafurl").value;
+			//var topic_uri = document.getElementById("topicuri").value;
+			var req = null;
+			if(window.XMLHttpRequest){
+            //alert("firefox");
+                req = new XMLHttpRequest();
+            }
+            else if(window.ActiveXObject){
+            //alert("ie");
+                req = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            url = "/BibtexToRDFa/baxtree/servlet/SmartFoafTransformer?foaf="+encodeURIComponent(foaf_url);
+			//url = "/BibtexToRDFa/baxtree/servlet/FoafTransformer?foaf="+encodeURIComponent(foaf_url)+"&topic="+encodeURIComponent(topic_uri);
+			if(req){
+                req.open("GET", url, true);
+                req.onreadystatechange = function(){
+                    if(req.readyState == 4){
+                        if(req.status == 200){
+							document.getElementById("xhtmlrdfa").value = req.responseText;
+							document.getElementById("preview").contentWindow.document.write(req.responseText);
+						}
+					}
+				}
+			}
+			req.send(null);
+		}
+		
+		function update(){
+			window.frames["preview"].document.close();
+			window.frames["preview"].document.write(document.getElementById("xhtmlrdfa").value);
+		}
+	</script>
+</head>
+<body bgcolor="#FFDDAA">
+	<table border="0">
+		<tr bgcolor="#FFF8DD"><td>FOAF file URL: </td></tr>
+		<tr bgcolor="#FFF8DD"><td><input id='foafurl' value="http://richard.cyganiak.de/foaf.rdf" size="100"/></td></tr>
+		<!-- tr bgcolor="#FFF8DD"><td>Its Topic URI: </td></tr>
+		<tr bgcolor="#FFF8DD"><td><input id='topicuri' value="http://richard.cyganiak.de/foaf.rdf#cygri" size="100"/></td></tr-->
+	</table>
+	<table><tr><td><button id="submit" value="submit" onclick="transform();">Submit!</button></td><td/><td/><td>This tool is in active developement by <a href="http://homepages.inf.ed.ac.uk/s0896253/index.html">Xi Bai</a>. You can check out on the <a href="http://homepages.inf.ed.ac.uk/s0896253/index.html">contact page</a>.</td></tr></table>
+	<p/>
+	<table>
+		<tr bgcolor="#FFF8DD"><td>XHTML+RDFa source code:</td></tr>
+		<tr><td><textarea id="xhtmlrdfa" style="border:0" rows="20" cols="100" onKeyUp="update();" onMouseup="update();"></textarea></td></tr>
+		<!-- pre class="brush: xhtml;">
+			&lt;html&gt;
+				&lt;head&gt;
+				&lt;/head&gt;
+				&lt;body&gt;
+					this is a test.
+				&lt;/body&gt;
+			&lt;/html&gt;
+		</pre-->
+	</table>
+	<label style="bgcolor:#FFF8DD">Page preview:</label><br/>
+	<iframe name="preview" width="85%" height="100%" frameborder="0"></iframe>
+</body>
+</html>

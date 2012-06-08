@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>FOAF RDFa Generator</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script type="text/javascript" src="javascript/rdfaizer.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="navigator">
+			<ul>
+				<li><a href="index.html">Home</a>|</li>
+				<li><a href="about.html">About</a>|</li>
+				<li><a href="contact.html">Contact</a>|</li>
+				<li><a href="api.html">API</a></li>
+			</ul>
+		</div>
+		<div id="header">
+			<h1>RDFa&sup2; Template Editor</h1>
+			<h3>Customize Your Template Before Publishing RDFa.</h3>
+		</div>
+		<div id="forms">
+			<form>
+				<label>FOAF file URL: </label><br/>
+				<input id='rdfurl' value="e.g., your FOAF file URL (http://www.example.org/foaf.rdf)" onfocus="javascript: this.value = '';" size="100"/><br/>
+				<label>Its Topic URI: </label><br/>
+				<input id='topicuri' value="e.g., your avatar URI (http://www.example.org/foaf.rdf#me)" onfocus="javascript: this.value = '';" size="100"/>
+			</form>
+		</div>
+		<div id="execution">
+			<button id="submit" value="submit" onclick="createTemplate();">Submit!</button>
+		</div>
+		<div id="template">
+			<label>Template:</label><br/>
+			<textarea id="template"></textarea><br/>
+			<button id="applytemplate" value="applytemplate" onclick="applyTemplate();">Apply this template!</button><br/>
+		<div>
+	</div>
+	<div id="container">
+		<div id="markup">
+			<label>XHTML+RDFa source code:</label><br/>
+			<textarea id="xhtmlrdfa" style="border:0" rows="20" cols="100" onKeyUp="update();" onMouseup="update();"></textarea>
+		</div>
+		<div id="previewpage">
+			<label>Page preview:</label><br/>
+			<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe>
+		</div>
+	</div>
+</body>
+</html>

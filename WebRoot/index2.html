@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>RDFa&sup2;</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script type="text/javascript" src="javascript/rdfaizer.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="navigator">
+			<ul id="navul">
+				<li><a href="template.html">Template Editor</a>|</li>
+				<li><a href="about.html">About</a>|</li>
+				<li><a href="contact.html">Contact</a>|</li>
+				<li><a href="api.html">API</a></li>
+			</ul>
+		</div>
+		<div id="header">
+			<h1>RDFa&sup2;</h1>
+			<h3><span>RDFa a</span>nnotator For General Purpose.</h3>
+		</div>
+		<div id="forms">
+			<form id="firstform">
+				<label>RDF context from direct input: </label><br/>
+				<textarea id="rdfurl_0" name="rdfurl" rows=20 cols=90 onfocus="javascript: this.select();">
+&lt;?xml version="1.0"?&gt;
+&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+  ...
+  ...
+&lt;/rdf:RDF&gt;
+				</textarea><br/>
+				<label>Topic URI: </label><input type="button" value="Make a guess!" id="guess_0" onclick="guess_topic(this.id);"/><br/>
+				<input id="topicuri_0" type="text" name="topicuri" value="e.g., your avatar URI (http://www.example.org/foaf.rdf#me)" onfocus="javascript: this.select();" size="100"/><br/>
+				<div id="suggestion_0" style="display:none"></div>
+			</form>
+		</div>
+		<div id="execution">
+			<button id="addtopic" value="addtopic" onclick="add_topic();">Add Topics!</button><button id="addtopiccontext" value="addtopiccontext" onclick="add_input_context();">Add Contexts!</button><br/>
+			<hr/>
+			<button id="submit" value="submit" onclick="transform('complete');">Get the Complete Page.</button><button id="submit" value="submit" onclick="transform('partial');">Get the DIV Snippet.</button><br/>
+			<hr/>
+			<button id="submit" value="submit" onclick="vocab_transform('complete');">Publish As a Vocabulary</button>
+		</div>	
+		<div id="markup">
+			<label>XHTML+RDFa source code:</label>
+			<textarea id="xhtmlrdfa"  onKeyUp="update();" onMouseup="update();"></textarea>
+			<button id="strip" onclick="strip_indicators();">strip indicators</button>
+			<button id="showindicator" onclick="show_indicators();">show indicators</button>
+			<div id="tip">PS: Indicators in the form of [info: property] are used for offering additional infomation about the extracted items. You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
+		</div>
+		<div id="previewpage">
+			<label>Page preview:</label>
+			<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe>
+		</div>
+		<div id="footer">
+			<div id="altnav">
+				<a href="template.html">Template Editor</a> -
+				<a href="about.html">About</a> -
+				<a href="contact.html">Contact</a> -
+				<a href="api.html">API</a>
+			</div>
+			<div id="copyright">
+				Copyright &copy;2010 <a href="http://homepages.inf.ed.ac.uk/s0896253">Xi Bai</a> | Powered by <a href="http://freemarker.org/" >FreeMarker</a><br/>
+			</div>
+			<div id="license">
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/scotland/88x31.png" /></a><br />RDFa<sup>2</sup> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/">Creative Commons Attribution-Share Alike 2.5 UK: Scotland License</a>.<br/>
+				Many thanks to the support from Professor <a href="http://www.cogsci.ed.ac.uk/~ewan/">Ewan Klein</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

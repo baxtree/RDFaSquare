@@ -1,0 +1,163 @@
+body {
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 20px;
+	color: #666666;
+	background: #ffffff;
+}
+
+h1{
+	margin: 0;
+	padding: 0;
+	padding-top: 57px;
+	padding-right: 31px;
+	padding-left: 30px;
+	padding-bottom: 2px;
+}
+
+h1 a{
+	text-decoration: none;
+}
+
+h2{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h3{
+	font-style: italic;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+	flaof: left;
+	padding-top: 0;
+	padding-left: 30px;
+}
+
+h3 span {
+	font-style: normal;
+}
+
+.api{
+	font-size: 15px;
+}
+
+#container{
+	margin: 0;
+	padding: 0;
+	padding-bottom: 5px;
+	background: #FFDDAA;
+}
+
+#navigator{
+	float: right;
+	height: 150px;
+	padding-left: 0px; 
+	overflow: hidden; /*delete the content which exceed the boundary of the father div.*/
+	background: #FF9933;
+	padding: 0;
+}
+
+#navigator navul{
+	list-style-type: none; /*delete the dot before each list item.*/
+}
+
+#navigator li{
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center; 
+}
+
+#header{
+	height: 150px;
+	background: #FF9933;
+	padding-right: 0;
+}
+
+#forms{
+	float: left;
+	width: 700px;
+	padding-top: 15px;
+	padding-bottom: 0;
+}
+
+#execution{
+	float: left;
+	width: 260px;
+	height: 120px;
+	padding-top: 15px;
+}
+
+#markup{
+	float: left;
+	width: 500px;
+	padding: 0;
+}
+
+#markup #xhtmlrdfa{
+	border: 0;
+	width: 450px;
+	height: 700px;
+}
+
+#previewpage{
+	float: left;
+	width: 450px;
+	height: 700px;
+	padding: 0;
+}
+
+#previewpage #preview{
+	width: 450px;
+	height: 700px;
+}
+
+label{
+	background: #FFF8DD;
+	margin: 0;
+	padding: 0;
+}
+
+#tip{
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+#footer {
+	clear:both;
+	background: orange;
+	height: 66px;
+	font-family: Tahoma, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+	color: #999999;
+	border-top: 1px solid #efefef;
+	padding: 13px 25px;
+	line-height: 18px;
+}
+
+#footer a{
+	text-decoration: none;
+}
+
+#footer a:hover{
+	color: #db6d16;
+}
+
+#footer #altnav{
+	width: 350px;
+	float: right;
+	text-align: right;
+}
+
+#footer sup{
+	font-size: 8px;
+}
+
+#template{
+	margin-left: auto;
+	margin-right: auto;
+	border: 0;
+	width: 600px;
+	height: 700px;
+}
