@@ -38,10 +38,10 @@ public class TemplateGenerater {
 		this.topic_uri = topic_uri;
 	}
 	public String createTemplate(String template_name){
-		String topic_local_name = this.model.getResource(this.topic_uri).getLocalName();
-		if(topic_local_name != null && !topic_local_name.equals(""))
-			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">"+topic_local_name+"</a><br/>\r\n\r\n";
-		else
+//		String topic_local_name = this.model.getResource(this.topic_uri).getLocalName();
+//		if(topic_local_name != null && !topic_local_name.equals(""))
+//			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">"+topic_local_name+"</a><br/>\r\n\r\n";
+//		else
 			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">${topic.topicuri}</a><br/>\r\n\r\n";
 		//topic ?p ?o
 		String preprouri = "";
