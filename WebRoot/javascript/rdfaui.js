@@ -235,7 +235,7 @@
 						});
 			$dialog.dialog('option', 'buttons', {"Close" : function(){$(this).dialog("close");}});
 			$dialog.dialog('option', 'width', 685);
-			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
+			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove();});
 			$dialog.dialog('open');
 		}
 		
