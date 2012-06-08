@@ -72,7 +72,7 @@ public class TemplateGenerater {
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
 								"		<#if topic."+ pro_node_name +"[key].val??>\r\n" +
 								getLiteralStyle(pro_local_name, preprouri)+
-								"			<span property=\""+ pro_curie_name +"\"<#if topic."+ pro_node_name +"[key].dat??> datatype=\"${topic."+ pro_node_name +"[key].dat}\"</#if><#if topic."+ pro_node_name +"[key].lan??> xml:lang=\"${topic."+ pro_node_name +"[key].lan}\"</#if>>${topic."+ pro_node_name +"[key].val}</span><br/>\r\n" +
+								"			<span class=\"rdfasnippet\" style=\"width:80%\"><span property=\""+ pro_curie_name +"\"<#if topic."+ pro_node_name +"[key].dat??> datatype=\"${topic."+ pro_node_name +"[key].dat}\"</#if><#if topic."+ pro_node_name +"[key].lan??> xml:lang=\"${topic."+ pro_node_name +"[key].lan}\"</#if>>${topic."+ pro_node_name +"[key].val}</span></span><br/>\r\n" +
 								"		</#if>\r\n" +
 								"	</#list>\r\n" +
 								"</#if>\r\n\r\n";
@@ -88,16 +88,16 @@ public class TemplateGenerater {
 							index = object_uri.lastIndexOf(".");
 						String expension_name = object_uri.substring(index);
 						if(img_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img></span><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
-								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else{
-								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 					}
 					/*@TODO need test
@@ -116,7 +116,7 @@ public class TemplateGenerater {
 					}
 					*/
 					else{
-						web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+						web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 					}
 					template_str += "<#if topic."+ pro_node_name +"??>\r\n" +
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
@@ -166,20 +166,20 @@ public class TemplateGenerater {
 							index = object_uri.lastIndexOf(".");
 						String expension_name = object_uri.substring(index);
 						if(img_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img></span><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else if(pro_curie_name.indexOf("license") != -1 || pro_curie_name.indexOf("License") != -1 || pro_curie_name.indexOf("LICENSE") != -1){
-								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 						else{
-								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+								web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 						}
 					}
 					else{
-							web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
+							web_resource_tags = "<span class=\"rdfasnippet\" style=\"width:80%\"><a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\" target=\"dereference\">${topic."+ pro_node_name +"[key].uri}</a></span><br/>\r\n";
 					}
 					template_str += "<#if topic."+ pro_node_name +"??>\r\n" +
 								"	<#list topic."+pro_node_name+"?keys as key>\r\n" +
@@ -194,7 +194,9 @@ public class TemplateGenerater {
 			
 		}
 //		System.out.println(template_str); 
-		template_str += "</div>\r\n\r\n";
+		template_str += "</div>\r\n" +
+						"<iframe name=\"dereference\" style=\"display:none\"></iframe>\r\n" +
+						"\r\n";
 		return template_str;
 	}
 	
