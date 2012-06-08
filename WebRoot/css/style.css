@@ -28,13 +28,33 @@ h3{
 	font-size: 15px;
 	margin: 0;
 	padding: 0;
-	flaof: left;
+	float: left;
 	padding-top: 0;
 	padding-left: 30px;
 }
 
 h3 span {
 	font-style: normal;
+}
+
+#version {
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	float: right;
+	padding-top: 0;
+	padding-left: 30px;
+	padding-bottom: 0;
+}
+
+#version a:link{
+	text-decoration: underline;
+	color:#666666;
+}
+
+#version a:visited{
+	text-decoration: none;
+	color:#666666
 }
 
 .api{
@@ -46,7 +66,7 @@ h3 span {
 	font-size: 20px;
 	margin: 0;
 	padding: 0;
-	flaof: left;
+	flaot: left;
 	padding-top: 0;
 	padding-left: 10px;
 	padding-bottom: 30px;
@@ -68,7 +88,15 @@ h3 span {
 
 .homepage a {text-decoration: none}
 
-.nodecolink a {text-decoration: none}
+.nodecolink a:link {
+	text-decoration:underline;
+	color: #666666;
+}
+
+.nodecolink a:visited {
+	text-decoration: none;
+	color: #666666;
+}
 
 #container{
 	margin: 0;
