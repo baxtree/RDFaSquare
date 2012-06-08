@@ -57,22 +57,32 @@ h3 span {
 	padding: 0;
 }
 
-#navigator navul{
+#navigator #navul{
 	list-style-type: none; /*delete the dot before each list item.*/
 }
 
-#navigator li{
+#navigator #navul li{
 	float: left;
 	margin: 0;
 	padding: 0;
 	text-align: center; 
 }
 
+#navigator #navul li a:link {color: #FFDDAA; text-decoration: none}
+#navigator #navul li a:visited {background: #FFCC00; text-decoration: none}
+#navigator #navul li a:active {background: #FFCC00; text-decoration: none}
+#navigator #navul li a:hover {color: red;}
+
 #header{
 	height: 150px;
 	background: #FF9933;
 	padding-right: 0;
 }
+
+#header h1 a:link {color: #FFDDAA; text-decoration: none}
+#header h1 a:visited {color: #FFDDAA; text-decoration: none}
+#header h1 a:active {color: #FFDDAA; text-decoration: none}
+#header h1 a:hover {color: #FFDDAA; text-decoration: none}
 
 #forms{
 	float: left;
@@ -85,7 +95,13 @@ h3 span {
 	float: left;
 	width: 260px;
 	height: 120px;
-	padding-top: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#execution button{
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 #markup{

@@ -88,7 +88,7 @@ public class TemplateGenerater {
 							index = object_uri.lastIndexOf(".");
 						String expension_name = object_uri.substring(index);
 						if(img_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"80px\" height=\"100px\"></img><br/>\r\n";
+								web_resource_tags = "<img rev=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
 								web_resource_tags = "<a rel=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
@@ -166,7 +166,7 @@ public class TemplateGenerater {
 							index = object_uri.lastIndexOf(".");
 						String expension_name = object_uri.substring(index);
 						if(img_formats.indexOf(expension_name) != -1){
-								web_resource_tags = "<img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\"></img><br/>\r\n";
+								web_resource_tags = "<img rel=\""+ pro_curie_name +"\" src=\"${topic."+ pro_node_name +"[key].uri}\" alt=\"\" width=\"100px\"></img><br/>\r\n";
 						}
 						else if(page_formats.indexOf(expension_name) != -1){
 								web_resource_tags = "<a rev=\""+ pro_curie_name +"\" href=\"${topic."+ pro_node_name +"[key].uri}\">${topic."+ pro_node_name +"[key].uri}</a><br/>\r\n";
