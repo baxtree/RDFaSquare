@@ -42,7 +42,7 @@ public class TemplateGenerater {
 //		if(topic_local_name != null && !topic_local_name.equals(""))
 //			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">"+topic_local_name+"</a><br/>\r\n\r\n";
 //		else
-			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">${topic.topicuri}</a><br/>\r\n\r\n";
+			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\" target=\"dereference\">${topic.topicuri}</a><br/>\r\n\r\n";
 		//topic ?p ?o
 		String preprouri = "";
 		String querystr = 	
