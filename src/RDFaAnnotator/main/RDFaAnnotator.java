@@ -38,6 +38,9 @@ public class RDFaAnnotator {
 	private Model model;
 	private Map<String, Map> root;
 	private Map<String, String> prefixes;
+	private static String DOCTYPE = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML+RDFa 1.0//EN\" \"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd\">";
+	private static String DEFAULT_HTML_ATTRIBUTES = "<HTML xmlns=\"http://www.w3.org/1999/xhtml\" version=\"XHTML+RDFa 1.0\" xml:lang=\"en\"";
+	private static String DEFAULT_META = "<META http-equiv=\"Content-Type\" content=\"application/xhtml+xml; charset=UTF-8\"/>";
 	
 	public RDFaAnnotator(String rdf_url, String topic_uri){
 		this.topic_uri = topic_uri;
@@ -312,15 +315,14 @@ public class RDFaAnnotator {
 	public static String decorateRDFa(Map<String, String> prefixes, String body_content, String type){
 		String template_str = "";
 		if(type.equalsIgnoreCase("complete")){
-			template_str = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML+RDFa 1.0//EN\" \"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd\">\r\n" +
-			"<html xmlns=\"http://www.w3.org/1999/xhtml\"\r\n";
+			template_str = DOCTYPE + "\r\n" + DEFAULT_HTML_ATTRIBUTES +"\r\n";
 			Set<String> pres = prefixes.keySet();
 			String temp = "";
 			for(String prefix : pres){
 				temp += "xmlns:"+prefix + "=\"" + prefixes.get(prefix) + "\"\r\n"; 
 			}
 			template_str += temp + ">\r\n";
-			template_str += "<head>\r\n<title></title>\r\n</head>\r\n<body>\r\n";
+			template_str += "<head>\r\n"+DEFAULT_META+"\r\n<title>change the title here ... </title>\r\n</head>\r\n<body>\r\n";
 			template_str += body_content;
 			template_str += "</body>\r\n</html>";
 			return template_str;
