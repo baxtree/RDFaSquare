@@ -350,7 +350,7 @@
 			document.getElementById("template_loader").style.display = "block";
 			var rdf_url = document.getElementById("rdfurl_0").value;
 			var topic_uri = document.getElementById("topicuri_0").value;
-			var template = document.getElementById("template_0").value;
+			var template = document.getElementById("template0").value;
 			var req;
 			if(window.XMLHttpRequest){
 				req = new XMLHttpRequest();

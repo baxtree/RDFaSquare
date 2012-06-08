@@ -295,6 +295,7 @@ public class RDFaAnnotator {
 			cfg.setEncoding(cfg.getLocale(), "UTF-8");
 //			cfg.setClassForTemplateLoading(this.getClass(), "/template");
 			StringTemplateLoader stl = new StringTemplateLoader();
+			System.out.println("template: " + template);
 			stl.putTemplate(template_name, template);
 //			System.out.print(stl.findTemplateSource(template_name));
 			cfg.setTemplateLoader(stl);

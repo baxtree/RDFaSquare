@@ -117,7 +117,7 @@
 									autoOpen: false,
 									title: 'Template Editing',
 							});
-							$dialog.dialog('option', 'buttons', {"Apply this template" : function(){$(this).dialog("close");$("#template_0").remove();applyTemplate();}});
+							$dialog.dialog('option', 'buttons', {"Apply this template" : function(){$(this).dialog("close");$("#template0").val(req.responseText);$("#template_0").remove();applyTemplate();}});
 							$dialog.dialog('option', 'width', 800);
 							$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
 							$dialog.dialog('open');					
