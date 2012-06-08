@@ -6,7 +6,7 @@
 			.dialog({
 				modal: true,
 				autoOpen: false,
-				title: 'Free Editing',
+				title: 'RDFa Editing',
 			});
 			$dialog.dialog('option', 'buttons', {"Save" : function(){	
 																		original.innerHTML = $("#rawcodeupdate").val(); 
@@ -31,13 +31,7 @@
 		});
 	});
 	
-	function guess_topic_with_ui(id){
-			var index = id.split("\_")[1];
-			var rdf_url = document.getElementById("rdfurl_"+index).value;
-			if(!rdf_url.startsWith("http://") || rdf_url == "" || rdf_url == null || rdf_url == undefined){
-				alert("Please input the RDF context file URL first!");
-			}
-			else{
+	function guess_topic_request(index, rdf_url){
 				var guess_loader = document.getElementById("guessloader_"+index);
 				guess_loader.style.display = "block";
 				var req1 = null;
@@ -77,6 +71,21 @@
 		        req1.setRequestHeader("Content-length", para.length);
 		        req1.setRequestHeader("Connection", "close");
 		        req1.send(para);
+	}
+	
+	function guess_topic_with_ui(id){
+			var index = id.split("\_")[1];
+			var rdf_url = document.getElementById("rdfurl_"+index).value;
+			if(window.location.href.endsWith("index2.html")){//TODO this is not decent.
+				guess_topic_request(index, rdf_url);
+			}
+			else{
+				if(!rdf_url.startsWith("http://") || rdf_url == "" || rdf_url == null || rdf_url == undefined){
+					alert("Please input the RDF context first!");
+				}
+				else{
+					guess_topic_request(index, rdf_url);
+			    }
 		    }
 		}
 		
@@ -119,6 +128,7 @@
 			req.send(null);
 		}
 		
+		
 		function show_editor(){
 			var $dialog_node = $('<div id="editor"><textarea id="richeditor" rows="10" cols="70">'+$('#xhtmlrdfa').val()+'</textarea></div>');
 			var $dialog = $dialog_node
@@ -127,10 +137,21 @@
 									autoOpen: false,
 									title: 'Free Editing',
 							});
+
 			var editor = CKEDITOR.replace( 'richeditor',
 			{
 				fullPage : true,
-				
+				toolbar: [	
+			    	['Source'],
+			        ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Scayt'],
+			        ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+			        ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+			        '/',
+			        ['Styles','Format'],
+			        ['Bold','Italic','Strike'],
+			        ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+			        ['Link','Unlink','Anchor'],
+			    ],
 				/*XHTML_CSS
 				contentsCss : 'ckeditor/_samples/assets/output_xhtml.css',
 				coreStyles_bold	: { element : 'span', attributes : {'class': 'Bold'} },
@@ -199,6 +220,18 @@
 																$("#dialog").remove();
 														 	}});
 			$dialog.dialog('option', 'width', 900);
+			$dialog.dialog('option', 'height', 600);
 			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
 			$dialog.dialog('open');	
 		}
+		
+		function highlight_rdfa_snippet(){
+			var all_tags = document.getElementsByTagName("span");
+			for(var i = 0; i < all_tags.length; i++){
+				if(all_tags[i].className == "rdfasnippet"){
+					all_tags[i].setAttribute("onmouseover", "this.style.backgroundColor = \"#F5D0A9\"");
+					all_tags[i].setAttribute("onmouseout", "this.style.backgroundColor = \"#FFFFFF\"");
+				}
+			}
+		}
+		window.onload = highlight_rdfa_snippet;

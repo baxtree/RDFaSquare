@@ -4,6 +4,11 @@
 			return (this.match("^"+str)==str);
 		}
 		
+		String.prototype.endsWith = function(str)
+		{	
+			return (this.match(str+"$")==str);
+		}
+		
 		function display_vocab_navigators(){
 			var vocabnavigators = document.getElementsByName("vocabnavi");
 			vocabnavigators[0].style.display = "block";
@@ -30,11 +35,11 @@
 			var selection = document.getElementById("publishingtype");
 			var pubtype = selection.options[selection.selectedIndex].value;
 			if(pubtype == 0){
-				hide_vocab_navigators();
+				//hide_vocab_navigators();
 				transform("complete");
 			}
 			else if(pubtype == 1){
-				hide_vocab_navigators();
+				//hide_vocab_navigators();
 				transform("partial");
 			}
 			else if(pubtype == 2){
@@ -128,7 +133,7 @@
 							xhtmlrdfa_backup = req.responseText;
 							update();
 							display_markup_panel();
-							display_vocab_navigators();
+							//display_vocab_navigators();
 							vocabulary_loader.style.display = "none";
 						}
 					}
@@ -138,46 +143,6 @@
 	        req.setRequestHeader("Content-length", para.length);
 	        req.setRequestHeader("Connection", "close");
 	        req.send(para);
-		}
-		
-		function guess_topic(id){
-			var index = id.split("\_")[1];
-			var rdf_url = document.getElementById("rdfurl_"+index).value;
-			if(!rdf_url.startsWith("http://") || rdf_url == "" || rdf_url == null || rdf_url == undefined){
-				alert("Please input the RDF context first!");
-			}
-			else{
-				var guess_loader = document.getElementById("guessloader_"+index);
-				guess_loader.style.display = "block";
-				var req1 = null;
-				if(window.XMLHttpRequest){
-	            //alert("firefox");
-	                req1 = new XMLHttpRequest();
-	            } 	 	
-	            else if(window.ActiveXObject){
-	            //alert("ie");
-	                req1 = new ActiveXObject("Microsoft.XMLHTTP");
-	            }
-				var url = "/rdfasquare/baxtree/apis/TopicURIGuesser";
-				var para = "rdfurl=" + encodeURIComponent(rdf_url) + "&index=" + index;
-				if(req1){
-					req1.open("POST", url, true);
-	                req1.onreadystatechange = function(){
-	                    if(req1.readyState == 4){
-	                        if(req1.status == 200){
-								var div_suggestion = document.getElementById("suggestion_"+index);
-								div_suggestion.innerHTML = req1.responseText;
-								div_suggestion.style.display = "block";
-								guess_loader.style.display = "none";
-							}
-						}
-					}
-				}
-				req1.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		        req1.setRequestHeader("Content-length", para.length);
-		        req1.setRequestHeader("Connection", "close");
-		        req1.send(para);
-		    }
 		}
 		
 		function select_topic(uri, index){
@@ -512,6 +477,24 @@
 			}
 		}
 */
+		function edit_source(){
+			var xhtmlrdfa = document.getElementById("xhtmlrdfa");
+			xhtmlrdfa.removeAttribute("readOnly");
+			xhtmlrdfa.removeAttribute("disabled");
+		}
+		
+		function show_full_window(){
+			var new_window = window.open("", "newwindow", "fullscreen=3,menubar=no,status=no,toolbar=no");
+			new_window.document.write(document.getElementById("xhtmlrdfa").value);
+			new_window.document.close();
+		}
+		
+		function validate_xhtmlrdfa(){
+			var rdfa_content = document.getElementById("xhtmlrdfa").value;
+			var rawform = document.forms['raw_form'];
+			rawform.elements['fragment'].value = rdfa_content;
+			rawform.submit();
+		}
 		
 		function glean_triples(){
 			var glean_form = document.getElementById("glean_form"); 
