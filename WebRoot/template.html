@@ -28,13 +28,15 @@
 			<form id="firstform">
 				<label>RDF context file URL: </label><br/>
 				<input id="rdfurl_0" type="text" name="rdfurl" value="e.g., your FOAF file URL (http://www.example.org/foaf.rdf)" onfocus="javascript: this.select();" size="100"/><br/>
-				<label>Topic URI: </label><input type="button" value="Make a guess!" id="guess_0" onclick="guess_topic_with_ui(this.id);"/> <img id="guessloader_0" src="resource/ajax-loader.gif" style="display:none"/><br/>
+				<label>Topic URI: </label><input class="guessbutton" type="button" value="Make a guess!" id="guess_0" onclick="guess_topic_with_ui(this.id);this.blur();"/> <img id="guessloader_0" src="resource/ajax-loader.gif" style="display:none"/><br/>
 				<input id="topicuri_0" type="text" name="topicuri" value="e.g., your avatar URI (http://www.example.org/foaf.rdf#me)" onfocus="javascript: this.select();" size="100"/><br/>
 				<div id="suggestion_0" style="display:none"></div>
 			</form>
 		</div>
 		<div id="execution">
-			<button id="submit" value="submit" onclick="javascript:create_template_with_ui();">GO!</button><img id="template_loader" src="resource/ajax-loader.gif" style="display:none"/>
+			<p/>
+			<p/>
+			<span class="button"><a id="submit" href="javascript:" onclick="javascript:create_template_with_ui();"><span style="background: #fff; padding: 5px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">GO!</span></span></a></span><img id="template_loader" src="resource/ajax-loader.gif" style="display:none"/>
 		</div>	
 		<div id="markup" style="display:none">
 			<label>XHTML+RDFa source code:</label>
@@ -65,17 +67,16 @@
 		</div>
 		<div id="footer">
 			<div id="altnav">
-				<a href="template.html">Template Editor</a> -
-				<a href="about.html">About</a> -
-				<a href="contact.html">Contact</a> -
-				<a href="api.html">API</a>
-			</div>
-			<div id="copyright">
-				Copyright &copy;2010 <a href="http://homepages.inf.ed.ac.uk/s0896253">Xi Bai</a> | Powered by <a href="http://freemarker.org/" >FreeMarker</a><br/>
+				<a href="http://rdfasquare.wordpress.com"><span>Blog</span></a> - 
+				<a href="about.html"><span>About</span></a> - 
+				<a href="contact.html"><span>Contact</span></a> - 
+				<a href="api.html"><span>API</span></a>
 			</div>
 			<div id="license">
-				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/scotland/88x31.png" /></a><br />RDFa<sup>2</sup> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/">Creative Commons Attribution-Share Alike 2.5 UK: Scotland License</a>.<br/>
-				Many thanks to the support from Professor <a href="http://www.cogsci.ed.ac.uk/~ewan/">Ewan Klein</a>
+				Copyright &copy;2010 <a class="nodecolink" href="http://www.inf.ed.ac.uk"><img src="http://media.inf.ed.ac.uk/logos/InformaticsUni_CMYK.jpg" style="width:115px;border-width:0" alt=""/></a> <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/scotland/88x31.png" /></a>
+			</div>
+			<div id="note">
+				(Note: this site are tested to work correctly with Mozilla Firefox. Users with other browsers may experience varying layout results.) 
 			</div>
 		</div>
 	</div>

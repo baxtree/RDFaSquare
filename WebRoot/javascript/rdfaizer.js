@@ -188,7 +188,9 @@
 		
 		var form_count = 1;
 		function add_url_context(){
-			document.getElementById("addtopic").disabled = true;
+			var addtopic_button = document.getElementById("addtopic");
+			addtopic_button.style.display = "none";
+			document.getElementById("or").style.display = "none";
 			var forms = document.getElementById("forms");
 			var new_form = document.createElement("form");
 			var hr = document.createElement("hr");
@@ -211,7 +213,7 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
+			guess_button.onclick = function(){guess_topic_with_ui(this.id); this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			var loader = document.createElement("img");
 			loader.id = "guessloader_" + form_count;
@@ -258,7 +260,7 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
+			guess_button.onclick = function(){guess_topic_with_ui(this.id);this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			var loader = document.createElement("img");
 			loader.id = "guessloader_" + form_count;
@@ -282,14 +284,16 @@
 		
 		var topic_count = 1;
 		function add_topic(){
-			document.getElementById("addtopiccontext").disabled = true;
+			var addtopiccontext_button = document.getElementById("addtopiccontext");
+			addtopiccontext_button.style.display = "none";
+			document.getElementById("or").style.display = "none";
 			var form = document.getElementById("firstform");
 			var input1 = document.createElement("input");
 			input1.name = "rdfurl";
 			input1.id = "rdfurl_"+topic_count;
 			input1.size = 100;
-			input1.style.display = "none";
 			input1.value = document.getElementById("rdfurl_0").value;
+			input1.style.display = "none";
 			var label = document.createElement("label");
 			label.appendChild(document.createTextNode("Topic URI: "));
 			var input = document.createElement("input");
@@ -301,7 +305,7 @@
 			guess_button.id = "guess_"+topic_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
+			guess_button.onclick = function(){guess_topic_with_ui(this.id);this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			var loader = document.createElement("img");
 			loader.id = "guessloader_" + topic_count;
