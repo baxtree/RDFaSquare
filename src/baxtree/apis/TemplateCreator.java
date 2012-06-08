@@ -17,7 +17,6 @@ public class TemplateCreator extends HttpServlet {
 	throws IOException, ServletException {
 		String topic_uri = request.getParameter("topicuri");
 		String rdf_url = request.getParameter("rdfurl");
-		System.out.println(rdf_url+"______________"+topic_uri);
 		TemplateGenerater tg = new TemplateGenerater(rdf_url, topic_uri);
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

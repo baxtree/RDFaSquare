@@ -204,6 +204,9 @@ label{
       margin:0;
       padding:0;
       }
+    #tabs7 #current a span{
+		color:#666666;
+      }
     #tabs7 a {
       float:left;
       background:url("tableft7.gif") no-repeat left top;
@@ -222,7 +225,7 @@ label{
     #tabs7 a span {float:none;}
     /* End IE5-Mac hack */
     #tabs7 a:hover span {
-      color:#666666;
+      color:#FFF8DD;
       }
     #tabs7 a:hover {
       background-position:0% -42px;

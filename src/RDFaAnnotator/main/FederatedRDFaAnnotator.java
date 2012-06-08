@@ -61,6 +61,37 @@ public class FederatedRDFaAnnotator {
 		return body_content;
 	}
 	
+	public String generateRDFaBodyFromMultiContext(String template){
+		for(String[] ct : context_topic){
+			String rdf_url = ct[0];
+			String topic_uri = ct[1];
+			RDFaAnnotator rdfaa;
+			if(topic_uri == null || topic_uri.equals(""))
+				rdfaa = new RDFaAnnotator(rdf_url);
+			else
+				rdfaa = new RDFaAnnotator(rdf_url, topic_uri);
+			rdfaa.createMapTreeForTopicURI();
+			String temp = rdfaa.applyTemplate("", template);
+			Map<String, String> prefixes = rdfaa.getPrefixes();
+			Set<String> pres = prefixes.keySet();
+			for(String prefix : pres){
+				if(this.prefixes.containsKey(prefix)&&(this.prefixes.get(prefix).equalsIgnoreCase(prefixes.get(prefix)))){
+					continue;
+				}
+				else if(this.prefixes.containsKey(prefix)&&!(this.prefixes.get(prefix).equalsIgnoreCase(prefixes.get(prefix)))){
+					this.prefixes.put(prefix+"a", prefixes.get(prefix));
+					temp.replace(prefix+":", prefix+"a:");
+				}
+				else{
+					this.prefixes.put(prefix, prefixes.get(prefix));
+				}
+			}
+			body_content += temp;
+		}
+//		System.out.println(body_content);
+		return body_content;
+	}
+	
 	public String generateRDFa(String type){
 		if(context_topic.isEmpty()){
 			System.err.println("Tell me the object your are going to annotate and the context RDF file.");
@@ -68,6 +99,16 @@ public class FederatedRDFaAnnotator {
 		}
 		else{
 			return RDFaAnnotator.decorateRDFa(this.prefixes, generateRDFaBodyFromMultiContext(), type);
+		}
+	}
+	
+	public String generateRDFa(String type, String template){
+		if(context_topic.isEmpty()){
+			System.err.println("Tell me the object your are going to annotate and the context RDF file.");
+			return null;
+		}
+		else{
+			return RDFaAnnotator.decorateRDFa(this.prefixes, generateRDFaBodyFromMultiContext(template), type);
 		}
 	}
 	

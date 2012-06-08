@@ -1,4 +1,4 @@
-$(document).ready(function() {
+	$(document).ready(function() {
 		$('.rdfasnippet').click(function() {
 			var original = this;
 			var $dialog_node = $('<div id="dialog"><label for="rawcode">Rawcode:</label><br/><textarea id="rawcodeupdate" rows="5" cols="35">'+original.innerHTML+'</textarea></div>');
@@ -30,7 +30,7 @@ $(document).ready(function() {
 		});
 	});
 	
-function guess_topic_with_ui(id){
+	function guess_topic_with_ui(id){
 			var index = id.split("\_")[1];
 			var rdf_url = document.getElementById("rdfurl_"+index).value;
 			if(!rdf_url.startsWith("http://") || rdf_url == "" || rdf_url == null || rdf_url == undefined){
@@ -76,4 +76,42 @@ function guess_topic_with_ui(id){
 		        req1.setRequestHeader("Connection", "close");
 		        req1.send(para);
 		    }
+		}
+		
+		function create_template_with_ui(){
+			document.getElementById("template_loader").style.display = "block";
+			var rdf_url = document.getElementById("rdfurl_0").value;
+			var topic_uri = document.getElementById("topicuri_0").value;
+			var req = null;
+			if(window.XMLHttpRequest){
+            //alert("firefox");
+                req = new XMLHttpRequest();
+            }
+            else if(window.ActiveXObject){
+            //alert("ie");
+                req = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+			url = "/rdfasquare/baxtree/apis/TemplateCreator?rdfurl="+encodeURIComponent(rdf_url)+"&topicuri="+encodeURIComponent(topic_uri);
+			if(req){
+                req.open("GET", url, true);
+                req.onreadystatechange = function(){
+                    if(req.readyState == 4){
+                        if(req.status == 200){
+                        	document.getElementById("template_loader").style.display = "none";
+							var $dialog_node = $("<textarea id=\"template_0\" rows=\"15\" cols=\"65\" value=\"\"></textarea>");
+							$dialog_node.text(req.responseText);
+							var $dialog = $dialog_node
+							.dialog({
+									modal: true,
+									autoOpen: false,
+									title: 'Template Editing',
+							});
+							$dialog.dialog('option', 'buttons', {"Apply this template" : function(){$(this).dialog("close");$("#topicnodeselection").remove();applyTemplate();}});
+							$dialog.dialog('option', 'width', 800);
+							$dialog.dialog('open');					
+						}
+					}
+				}
+			}
+			req.send(null);
 		}

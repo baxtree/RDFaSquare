@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import RDFaAnnotator.main.FederatedRDFaAnnotator;
 import RDFaAnnotator.main.RDFaAnnotator;
 
 public class TemplateApplier extends HttpServlet{
@@ -26,7 +27,8 @@ public class TemplateApplier extends HttpServlet{
 		rdfaa.createMapTreeForTopicURI();
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		System.out.println(template);
-		out.println(rdfaa.applyTemplate("", template));
+		FederatedRDFaAnnotator fa = new FederatedRDFaAnnotator();
+		fa.addContextAndTopic(rdf_url, topic_uri);
+		out.println(fa.generateRDFa("complete", template));
 	}
 }

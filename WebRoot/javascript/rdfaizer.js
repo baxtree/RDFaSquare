@@ -5,8 +5,6 @@
 		}
 		
 		function publish(){
-			document.getElementById("markup").style.display = "block";
-			document.getElementById("previewpage").style.display = "block";
 			var selection = document.getElementById("publishingtype");
 			var pubtype = selection.options[selection.selectedIndex].value;
 			if(pubtype == 0){
@@ -70,6 +68,8 @@
 								document.getElementById("xhtmlrdfa").value = req.responseText;
 								xhtmlrdfa_backup = req.responseText;
 								update();
+								document.getElementById("markup").style.display = "block";
+								document.getElementById("previewpage").style.display = "block";
 								loader.style.display = "none";
 							}
 						}
@@ -322,10 +322,10 @@
 		}
 		
 		function createTemplate() {
-			document.getElementById("rdfurl").disabled = "true";
-			document.getElementById("topicuri").disabled = "true";
-			var rdf_url = document.getElementById("rdfurl").value;
-			var topic_uri = document.getElementById("topicuri").value;
+//			document.getElementById("rdfurl").disabled = "true";
+//			document.getElementById("topicuri").disabled = "true";
+			var rdf_url = document.getElementById("rdfurl_0").value;
+			var topic_uri = document.getElementById("topicuri_0").value;
 			var req = null;
 			if(window.XMLHttpRequest){
             //alert("firefox");
@@ -350,10 +350,10 @@
 		}
 		
 		function applyTemplate(){
-			document.getElementById("template").disabled = "true";
-			var rdf_url = document.getElementById("rdfurl").value;
-			var topic_uri = document.getElementById("topicuri").value;
-			var template = document.getElementById("template").value;
+			document.getElementById("template_loader").style.display = "block";
+			var rdf_url = document.getElementById("rdfurl_0").value;
+			var topic_uri = document.getElementById("topicuri_0").value;
+			var template = document.getElementById("template_0").value;
 			var req;
 			if(window.XMLHttpRequest){
 				req = new XMLHttpRequest();
@@ -370,6 +370,9 @@
 						if(req.status == 200){
 							document.getElementById("xhtmlrdfa").value = req.responseText;
 							xhtmlrdfa_backup = req.responseText;
+							document.getElementById("markup").style.display = "block";
+							document.getElementById("previewpage").style.display = "block";
+							document.getElementById("template_loader").style.display = "none";
 							update();
 						}
 					}
