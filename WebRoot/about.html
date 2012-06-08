@@ -7,7 +7,34 @@
 <body>
 <div id="container">
 <h2>About</h2>
-<p>This is an instruction.</p>
+<p>RDFa&sup2; is an on-line service which assists you in multi-topics annotation and
+multi-contexts annotation using <a href="http://www.w3.org/TR/2008/REC-rdfa-syntax-20081014/">RDFa</a>. 
+Under the guidance of RDFa&sup2;, you can personalize the generated Web page either by revising the XHTML+RDFa 
+source codes and get the preview on the fly or by revising the intermediate template which can be
+saved to the local memory for the future reuse.</p>
+
+<p>When annotating a target on the Web page, a user is normally focused on the properties associated with
+this target and ignores other resouces on this page temporarily. Based on this, RDFa&sup2; provides a
+Topic Node Discovery approach to recommand targets to you when you are not aware of the important resources
+inside RDF documents at the very beginning of annotating Web pages. Please use the <input type="button" value="Make a guess!" onclick=""/> button.</p>
+
+<p>A single RDF document may or may not have more than one resource in which users are interested. RDFa&sup2; allows
+you to annotate multiple topices derived from a single RDF document. Please use the <input type="button" value="Add Topics!" onclick=""/> button.
+On the other hand, sometimes you may want to annotate a Web page using resources derived from multiple contexts (RDF documents). RDFa&sup2; also allows
+you to fulfill this task using the <input type="button" value="Add Contexts!" onclick=""/> button.</p>
+
+<p>By clicking on the <input type="button" value="Get the Complete Page" onclick=""/> button, you can easily get a 
+ready-to-publish XHTML+RDFa page with the full features of a normal Web page. But if you have already got your Web
+page as well as relevant RDF document(s) and want to reuse this page, you can use the <input type="button" value="Get the DIV Snippet" onclick=""/>
+button to get a code snippet which can be easily copied and pasted to your Web page's &lt;body&gt; section.
+</p>
+
+<p>
+Maybe you are a vocabulary curator or ontologist and want to publish your vocabulary represented in form of 
+triples on a Web page which will be more human-readable. This is exactly the place where the <input type="button" value="Publish As a Vocabulary" onclick=""/> button come to play.
+In this scenario, which nodes are topic nodes will not be an important question any more. 
+</p>
+<p/> 
 <a href="index.html">back</a>
 </div>
 </body>

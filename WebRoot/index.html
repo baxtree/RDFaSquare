@@ -9,7 +9,8 @@
 	<div id="container">
 		<div id="navigator">
 			<ul id="navul">
-				<li><a href="template.html">Template Editor</a>|</li>
+				<!--li><a href="template.html">Template Editor</a>|</li-->
+				<li><a href="index2.html">Text Input</a>|</li>
 				<li><a href="about.html">About</a>|</li>
 				<li><a href="contact.html">Contact</a>|</li>
 				<li><a href="api.html">API</a></li>
@@ -23,7 +24,7 @@
 			<form id="firstform">
 				<label>RDF context file URL: </label><br/>
 				<input id="rdfurl_0" type="text" name="rdfurl" value="e.g., your FOAF file URL (http://www.example.org/foaf.rdf)" onfocus="javascript: this.select();" size="100"/><br/>
-				<label>Topic URI: </label><input type="button" value="Make a guess!" id="guess_0" onclick="guess_topic(this.id);"/><br/>
+				<label>Topic URI: </label><input type="button" value="Make a guess!" id="guess_0" onclick="guess_topic(this.id);"/> <img id="guess_loader" src="resource/ajax-loader.gif" style="display:none"/>Then click the one you like most. <br/>
 				<input id="topicuri_0" type="text" name="topicuri" value="e.g., your avatar URI (http://www.example.org/foaf.rdf#me)" onfocus="javascript: this.select();" size="100"/><br/>
 				<div id="suggestion_0" style="display:none"></div>
 			</form>
@@ -31,9 +32,9 @@
 		<div id="execution">
 			<button id="addtopic" value="addtopic" onclick="add_topic();">Add Topics!</button><button id="addtopiccontext" value="addtopiccontext" onclick="add_url_context();">Add Contexts!</button><br/>
 			<hr/>
-			<button id="submit" value="submit" onclick="transform('complete');">Get the Complete Page.</button><button id="submit" value="submit" onclick="transform('partial');">Get the DIV Snippet.</button><br/>
+			<button id="submit" value="submit" onclick="transform('complete');">Get the Complete Page</button><img id="complete_page_loader" src="resource/ajax-loader.gif" style="display:none"/><button id="submit" value="submit" onclick="transform('partial');">Get the DIV Snippet</button><img id="div_snippet_loader" src="resource/ajax-loader.gif" style="display:none"/><br/>
 			<hr/>
-			<button id="submit" value="submit" onclick="vocab_transform('complete');">Publish As a Vocabulary</button>
+			<button id="submit" value="submit" onclick="vocab_transform('complete');">Publish As a Vocabulary</button><img id="vocabulary_loader" src="resource/ajax-loader.gif" style="display:none"/>
 		</div>	
 		<div id="markup">
 			<label>XHTML+RDFa source code:</label>
@@ -54,7 +55,7 @@
 				<option value="4">N3</option>
 				<!-- option value="5">JSON</option-->
 			</select>
-			<button id="glean" onclick="glean_triples();">glean triples</button>
+			<button id="glean" onclick="glean_triples();">glean triples</button><img id="triples_loader" src="resource/ajax-loader.gif" style="display:none"/>
 		</div>
 		<div id="footer">
 			<div id="altnav">

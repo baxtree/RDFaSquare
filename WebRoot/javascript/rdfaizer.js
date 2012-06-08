@@ -1,6 +1,8 @@
 		var xhtmlrdfa_backup = "";
 		
 		function transform(type) {
+			var complete_page_loader = document.getElementById("complete_page_loader");
+			complete_page_loader.style.display = "block";
 			var flag = document.getElementById("addtopiccontext").disabled;
 			var req = null;
 			var url = "";
@@ -48,6 +50,7 @@
 								document.getElementById("xhtmlrdfa").value = req.responseText;
 								xhtmlrdfa_backup = req.responseText;
 								update();
+								complete_page_loader.style.display = "none";
 							}
 						}
 					}
@@ -59,6 +62,8 @@
 		}
 		
 		function vocab_transform(type) {
+			var vocabulary_loader = document.getElementById("vocabulary_loader");
+			vocabulary_loader.style.display = "block";
 			var rdfurl = document.getElementById("rdfurl_0").value;
 			var para = "";
 			//alert(rdfurl);
@@ -81,6 +86,7 @@
 							document.getElementById("xhtmlrdfa").value = req.responseText;
 							xhtmlrdfa_backup = req.responseText;
 							update();
+							vocabulary_loader.style.display = "none";
 						}
 					}
 				}
@@ -92,6 +98,8 @@
 		}
 		
 		function guess_topic(id){
+			var guess_loader = document.getElementById("guess_loader");
+			guess_loader.style.display = "block";
 			var index = id.split("\_")[1];
 			var rdf_url = document.getElementById("rdfurl_"+index).value;
 			var req1 = null;
@@ -113,6 +121,7 @@
 							var div_suggestion = document.getElementById("suggestion_"+index);
 							div_suggestion.innerHTML = req1.responseText;
 							div_suggestion.style.display = "block";
+							guess_loader.style.display = "none";
 						}
 					}
 				}
@@ -380,6 +389,8 @@
 		}
 		
 		function glean_triples(){
+			var triples_loader = document.getElementById("triples_loader");
+			triples_loader.style.display = "block";
 			var format_element = document.getElementById("serialization");
 			var format = format_element.options[format_element.selectedIndex].text;
 			var annotations = document.getElementById("xhtmlrdfa").value;
@@ -397,6 +408,7 @@
 					if(req.readyState == 4){
 						if(req.status == 200){
 							alert(req.responseText);
+							triples_loader.style.display = "none";
 						}
 					}
 				}
