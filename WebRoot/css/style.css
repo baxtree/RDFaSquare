@@ -41,6 +41,22 @@ h3 span {
 	font-size: 15px;
 }
 
+#flag{
+	font-style: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	flaof: left;
+	padding-top: 0;
+	padding-left: 10px;
+	padding-bottom: 30px;
+}
+
+#flag a:link {text-decoration: none}
+#flag a:visited {text-decoration: none}
+#flag a:active {text-decoration: none}
+#flag a:hover {text-decoration: none}
+
 #container{
 	margin: 0;
 	padding: 0;

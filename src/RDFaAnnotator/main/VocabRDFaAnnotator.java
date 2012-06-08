@@ -76,19 +76,19 @@ public class VocabRDFaAnnotator {
 		int property_count = 0;
 		for(String cla : this.classes){
 			rdfaa.createMapTreeForTopicURI(cla);
-			class_snippet += rdfaa.generateRDFa(cla);
+			class_snippet += "<br/><hr/>" + rdfaa.generateRDFa(cla);
 			class_count++;
 		}
 		String property_snippet = "";
 		for(String pro : this.properties){
 			rdfaa.createMapTreeForTopicURI(pro);
-			property_snippet += rdfaa.generateRDFa(pro);
+			property_snippet += "<br/><hr/>" + rdfaa.generateRDFa(pro);
 			property_count++;
 		}
 		long end = System.currentTimeMillis();
 		if(!property_snippet.equals("")){
 			System.out.println(end-begin+"ms");
-			xhtmlrdfa = "<h3 style=\"margin:0;padding:0\">Classes ("+class_count+"):</h3><br/>" + class_snippet + "<h3 style=\"margin:0;padding:0\">Properties ("+property_count+"):</h3><br/>" + property_snippet;
+			xhtmlrdfa = "<div id=\"classes\"><h3 style=\"margin:0;padding:0\">Classes ("+class_count+"):</h3><br/>" + class_snippet + "</div><p/><p/><div id=\"properties\"><h3 style=\"margin:0;padding:0\">Properties ("+property_count+"):</h3><br/>" + property_snippet + "</div>";
 			return RDFaAnnotator.decorateRDFa(rdfaa.getPrefixes(), xhtmlrdfa, type);
 		}
 		else{

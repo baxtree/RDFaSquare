@@ -4,13 +4,37 @@
 			return (this.match("^"+str)==str);
 		}
 		
+		function display_vocab_navigators(){
+			var vocabnavigators = document.getElementsByName("vocabnavi");
+			vocabnavigators[0].style.display = "block";
+			vocabnavigators[1].style.display = "block";
+		}
+		
+		function hide_vocab_navigators(){
+			var vocabnavigators = document.getElementsByName("vocabnavi");
+			vocabnavigators[0].style.display = "none";
+			vocabnavigators[1].style.display = "none";
+		}
+		
+		function display_markup_panel(){
+			document.getElementById("markup").style.display = "block";
+			document.getElementById("previewpage").style.display = "block";
+		}
+		
+		function hide_markup_panel(){
+			document.getElementById("markup").style.display = "none";
+			document.getElementById("previewpage").style.display = "none";
+		}
+		
 		function publish(){
 			var selection = document.getElementById("publishingtype");
 			var pubtype = selection.options[selection.selectedIndex].value;
 			if(pubtype == 0){
+				hide_vocab_navigators();
 				transform("complete");
 			}
 			else if(pubtype == 1){
+				hide_vocab_navigators();
 				transform("partial");
 			}
 			else if(pubtype == 2){
@@ -68,8 +92,7 @@
 								document.getElementById("xhtmlrdfa").value = req.responseText;
 								xhtmlrdfa_backup = req.responseText;
 								update();
-								document.getElementById("markup").style.display = "block";
-								document.getElementById("previewpage").style.display = "block";
+								display_markup_panel();
 								loader.style.display = "none";
 							}
 						}
@@ -106,6 +129,8 @@
 							document.getElementById("xhtmlrdfa").value = req.responseText;
 							xhtmlrdfa_backup = req.responseText;
 							update();
+							display_markup_panel();
+							display_vocab_navigators();
 							vocabulary_loader.style.display = "none";
 						}
 					}
@@ -121,7 +146,7 @@
 			var index = id.split("\_")[1];
 			var rdf_url = document.getElementById("rdfurl_"+index).value;
 			if(!rdf_url.startsWith("http://") || rdf_url == "" || rdf_url == null || rdf_url == undefined){
-				alert("Please input the RDF context file URL first!");
+				alert("Please input the RDF context first!");
 			}
 			else{
 				var guess_loader = document.getElementById("guessloader_"+index);
@@ -370,8 +395,7 @@
 						if(req.status == 200){
 							document.getElementById("xhtmlrdfa").value = req.responseText;
 							xhtmlrdfa_backup = req.responseText;
-							document.getElementById("markup").style.display = "block";
-							document.getElementById("previewpage").style.display = "block";
+							display_markup_panel();
 							document.getElementById("template_loader").style.display = "none";
 							update();
 						}
