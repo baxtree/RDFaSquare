@@ -27,12 +27,15 @@ public class LabelFinder {
 				break;
 			}
 		}
+		if(label == null && resource.getLocalName() != null && !resource.getLocalName().equals(""))
+			label = resource.getLocalName();
+			
 		return label;
 	}
 	
 	public static String applyLabelToResource(Model model, String str){
 		String result = str;
-		Pattern pattern = Pattern.compile(">((http://|https://){1}[^<>]+)<");//this is a little fragile. 
+		Pattern pattern = Pattern.compile(">((http://|https://){1}[^<>]+)<");//Find the urls which are node texts. This is a little fragile. 
 		Matcher matcher = pattern.matcher(str);
 		while(matcher.find()){
 			String uri = matcher.group(1);
