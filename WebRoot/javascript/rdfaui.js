@@ -117,7 +117,7 @@
 									autoOpen: false,
 									title: 'Template Editing',
 							});
-							$dialog.dialog('option', 'buttons', {"Apply this template" : function(){$(this).dialog("close");$("#topicnodeselection").remove();applyTemplate();}});
+							$dialog.dialog('option', 'buttons', {"Apply this template" : function(){$(this).dialog("close");$("#template_0").remove();applyTemplate();}});
 							$dialog.dialog('option', 'width', 800);
 							$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
 							$dialog.dialog('open');					
@@ -223,6 +223,20 @@
 			$dialog.dialog('option', 'height', 600);
 			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
 			$dialog.dialog('open');	
+		}
+		
+		function open_screencast(id){
+			var $dialog_node = $("#"+id+"screencast");
+			//var $dialog_node = $("foafffscreencast");
+			var $dialog = $dialog_node.dialog({
+							modal: true,
+							autoOpen: false,
+							title: "screencast",
+						});
+			$dialog.dialog('option', 'buttons', {"Close" : function(){$(this).dialog("close");}});
+			$dialog.dialog('option', 'width', 685);
+			$dialog.dialog('option', 'close', function(ev, ui) {$(this).remove(); });
+			$dialog.dialog('open');
 		}
 		
 		function highlight_rdfa_snippet(){

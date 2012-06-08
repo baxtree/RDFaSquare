@@ -166,6 +166,11 @@ h3 span {
 	height: 45px;
 }
 
+#screenshot{
+	float: left;
+	padding-top: 15px
+}
+
 #markup{
 	float: left;
 	width: 500px;
