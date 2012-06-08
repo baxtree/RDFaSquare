@@ -32,7 +32,7 @@ public class RDFModelLoader {
 			// con.setRequestProperty("Accept", "application/rdf+xml");
 			try {
 				Class.forName("net.rootdev.javardfa.RDFaReader");
-				model.read(isr, rdf_url, "XHTML");
+				model.read(isr, "XHTML");
 			} catch (ClassNotFoundException cnfe) {
 				cnfe.printStackTrace();
 			}
@@ -67,7 +67,7 @@ public class RDFModelLoader {
 		StringReader sr = new StringReader(rdfxml);
 		try {
 			Class.forName("net.rootdev.javardfa.RDFaReader");
-			model.read(sr, "http://base", "XHTML");
+			model.read(sr, "XHTML");
 		} catch (ClassNotFoundException cnfe) {
 			cnfe.printStackTrace();
 		}
@@ -78,7 +78,7 @@ public class RDFModelLoader {
 				cnfe.printStackTrace();
 			}
 			JenaReader jreader = new JenaReader();
-			jreader.read(model, sr, "http://base");
+			jreader.read(model, sr, "");
 //			FileManager fm = new FileManager();
 //			model = fm.loadModel(rdf_url, "RDF/XML");
 		}

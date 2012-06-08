@@ -161,7 +161,7 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.onclick = function(){guess_topic(this.id)};
+			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			new_form.appendChild(hr);
 			new_form.appendChild(label1);
@@ -203,7 +203,7 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.onclick = function(){guess_topic(this.id)};
+			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			new_form.appendChild(hr);
 			new_form.appendChild(label1);
@@ -224,13 +224,28 @@
 		function add_topic(){
 			document.getElementById("addtopiccontext").disabled = true;
 			var form = document.getElementById("firstform");
+			var input1 = document.createElement("input");
+			input1.name = "rdfurl";
+			input1.id = "rdfurl_"+topic_count;
+			input1.size = 100;
+			input1.style.display = "none";
+			input1.value = document.getElementById("rdfurl_0").value;
 			var label = document.createElement("label");
 			label.appendChild(document.createTextNode("Topic URI: "));
 			var input = document.createElement("input");
 			input.name = "topicuri";
 			input.id = "topicuri_" + topic_count;
+			input.onfocus = "javascript: this.select();";
 			input.size = 100;
+			var guess_button = document.createElement("input");
+			guess_button.id = "guess_"+topic_count;
+			guess_button.type = "button";
+			guess_button.value = "Make a guess!";
+			guess_button.onclick = function(){guess_topic_with_ui(this.id)};
+			guess_button.appendChild(document.createTextNode("Make a guess!"));
+			form.appendChild(input1);
 			form.appendChild(label);
+			form.appendChild(guess_button);
 			form.appendChild(document.createElement("br"));
 			form.appendChild(input);
 			form.appendChild(document.createElement("br"));

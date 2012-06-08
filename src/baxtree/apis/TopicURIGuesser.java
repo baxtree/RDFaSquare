@@ -34,17 +34,28 @@ public class TopicURIGuesser extends HttpServlet {
 		else
 			model = RDFModelLoader.loadTriplesFromString(rdf_url);
 		NodeStatist ns = new NodeStatist(model);
-		ArrayList<String> potential_topics = ImportanceCalculator.getTopNUriWithLargestImportance(3, ns.getUri_occurrence_in_sub(), ns.getUri_occurrence_in_obj(), 0.5);
+		ArrayList<String> potential_topics = ImportanceCalculator.getTopNUriWithLargestImportance(10, ns.getUri_occurrence_in_sub(), ns.getUri_occurrence_in_obj(), 0.5);
 		String result = "";
+		int count = 1;
 		for(String purl : potential_topics){
 			String preferred_label = LabelFinder.getPreferredLabel(model, purl);
-			if(preferred_label != null)
-				result += "<a href=\"javascript:select_topic('" + purl + "', '" + index + "');\">" + preferred_label + "</a>,";
-			else
-				result += "<a href=\"javascript:select_topic('" + purl + "', '" + index + "');\">" + purl + "</a>,";
+			if(count <= 3){
+				if(preferred_label != null)
+					result += "<a href=\"javascript:select_topic('" + purl + "', '" + index + "');\" style=\"display:block;\">" + preferred_label + "</a><br/>";
+				else
+					result += "<a href=\"javascript:select_topic('" + purl + "', '" + index + "');\" style=\"display:block;\">" + purl + "</a><br/>";
+				if(count == 3)
+					result += "  <a id=\"seemore\" href=\"#\" onclick=\"javascript: var more = document.getElementsByName('seemore'); for(var i = 0; i < more.length; i++){more[i].style.display='block'; document.getElementById('seemore').style.display='none';}\"><i>see more</i></a>";
+			}
+			else{
+				if(preferred_label != null)
+					result += "<a name=\"seemore\" href=\"javascript:select_topic('" + purl + "', '" + index + "');\" style=\"display:none;\">" + preferred_label + "</a><br/>";
+				else
+					result += "<a name=\"seemore\" href=\"javascript:select_topic('" + purl + "', '" + index + "');\" style=\"display:none;\">" + purl + "</a><br/>";
+			}
+			count++;
 		} 
 		System.out.println(index);
-		result = result.substring(0, result.length()-1);
 		System.out.println(result);
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

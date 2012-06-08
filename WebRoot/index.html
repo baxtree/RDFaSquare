@@ -4,6 +4,10 @@
 	<title>RDFa&sup2;</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css"/>
 	<script type="text/javascript" src="javascript/rdfaizer.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"></link>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="javascript/rdfaui.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -24,7 +28,7 @@
 			<form id="firstform">
 				<label>RDF context file URL: </label><br/>
 				<input id="rdfurl_0" type="text" name="rdfurl" value="e.g., your FOAF file URL (http://www.example.org/foaf.rdf)" onfocus="javascript: this.select();" size="100"/><br/>
-				<label>Topic URI: </label><input type="button" value="Make a guess!" id="guess_0" onclick="guess_topic(this.id);"/> <img id="guess_loader" src="resource/ajax-loader.gif" style="display:none"/>Then click the one you like most. <br/>
+				<label>Topic URI: </label><input type="button" value="Make a guess!" id="guess_0" onclick="guess_topic_with_ui(this.id);"/> <img id="guess_loader" src="resource/ajax-loader.gif" style="display:none"/><br/>
 				<input id="topicuri_0" type="text" name="topicuri" value="e.g., your avatar URI (http://www.example.org/foaf.rdf#me)" onfocus="javascript: this.select();" size="100"/><br/>
 				<div id="suggestion_0" style="display:none"></div>
 			</form>
@@ -61,7 +65,7 @@
 				<input type="text" name="baseuri" value=""/>
 				<input type="text" name="format" value=""/>
 			</form>
-			<button id="glean" onclick="glean_triples();">glean triples</button><!-- img id="triples_loader" src="resource/ajax-loader.gif" style="display:none"/-->
+			<button id="glean" onclick="glean_triples();">export</button><!-- img id="triples_loader" src="resource/ajax-loader.gif" style="display:none"/-->
 		</div>
 		<div id="footer">
 			<div id="altnav">
