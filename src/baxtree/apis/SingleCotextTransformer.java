@@ -28,7 +28,7 @@ public class SingleCotextTransformer extends HttpServlet {
 		String xhtmlrdfa = "";
 		for(String topicuri : topicuris){
 			rdfaa.setCurrentTopicURI(topicuri);
-			rdfaa.createMapTreeForTopicURI();
+			rdfaa.createMapTreeForTopicURIFromContext();
 			xhtmlrdfa += rdfaa.generateRDFa("");
 		}
 		response.setCharacterEncoding("UTF-8");

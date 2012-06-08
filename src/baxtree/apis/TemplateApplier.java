@@ -24,7 +24,7 @@ public class TemplateApplier extends HttpServlet{
 		String topic_uri = request.getParameter("topic");
 		String rdf_url = request.getParameter("rdfurl");
 		RDFaAnnotator rdfaa = new RDFaAnnotator(rdf_url, topic_uri);
-		rdfaa.createMapTreeForTopicURI();
+		rdfaa.createMapTreeForTopicURIFromContext();
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		FederatedRDFaAnnotator fa = new FederatedRDFaAnnotator();

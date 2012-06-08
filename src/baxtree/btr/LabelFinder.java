@@ -15,6 +15,11 @@ public class LabelFinder {
 										"http://www.w3.org/2004/02/skos/core#prefLabel",
 										"http://www.w3.org/2000/01/rdf-schema#label"};
 
+	public static String getPreferredLabelFromEndpoint(String endpoint_url, String uri){
+		//TODO need implement
+		return null;
+	}
+	
 	public static String getPreferredLabel(Model model, String uri){
 		String label = null;
 		Resource resource = model.getResource(uri);
@@ -31,6 +36,20 @@ public class LabelFinder {
 			label = resource.getLocalName();
 			
 		return label;
+	}
+	
+	public static String applyLabelToResource(String endpoint_url, String str){
+		String result = str;
+		Pattern pattern = Pattern.compile(">((http://|https://){1}[^<>]+)<");//Find the urls which are node texts. This is a little fragile. 
+		Matcher matcher = pattern.matcher(str);
+		while(matcher.find()){
+			String uri = matcher.group(1);
+			String preferred_label = getPreferredLabelFromEndpoint(endpoint_url, uri);
+			if(preferred_label != null){
+				result = result.replace(">"+uri+"<", ">"+preferred_label+"<");
+			}
+		}
+		return result;
 	}
 	
 	public static String applyLabelToResource(Model model, String str){

@@ -32,11 +32,21 @@ import freemarker.template.TemplateException;
 
 public class RDFaAnnotator {
 
-	private String topic_uri;
-	private String rdf_url;
+	protected String topic_uri;
+	protected String rdf_url;
+	protected String endpoint_url;
+	protected String endpoint_name;
 	private Model model;
-	private Map<String, Map> root;
-	private Map<String, String> prefixes;
+	protected Map<String, Map> root;
+	protected Map<String, String> prefixes;
+	
+	public RDFaAnnotator(String endpoint_url, String topic_uri, String endpoint_name){
+		this.topic_uri = topic_uri;
+		this.endpoint_url = endpoint_url;
+		this.endpoint_name = endpoint_name;
+		prefixes = new HashMap<String, String>();
+		root = new HashMap<String, Map>();
+	}
 	
 	public RDFaAnnotator(String rdf_url, String topic_uri){
 		this.topic_uri = topic_uri;
@@ -93,8 +103,8 @@ public class RDFaAnnotator {
 			this.model = RDFModelLoader.loadTriplesFromString(this.rdf_url);
 		}
 	}
-		
-	public void createMapTreeForTopicURI(){
+	
+	public void createMapTreeForTopicURIFromContext(){
 		
 		// topic ?p ?o
 		String querystr = 	
@@ -238,14 +248,14 @@ public class RDFaAnnotator {
 //		System.out.println(root);
 	}
 	
-	public void createMapTreeForTopicURI(String current_topic_uri){
+	public void createMapTreeForTopicURIFromContext(String current_topic_uri){
 		this.topic_uri = current_topic_uri;
-		createMapTreeForTopicURI();
+		createMapTreeForTopicURIFromContext();
 	}
 	
-	public String generateTemplate(String template_name){
+	public String generateTemplateFromContext(String template_name){
 		TemplateGenerater itg = new TemplateGenerater(this.model, this.topic_uri);
-		return itg.createTemplate(template_name);
+		return itg.createTemplateFromContext(template_name);
 	}
 	
 	public String generateRDFa(String template_name){
@@ -256,7 +266,7 @@ public class RDFaAnnotator {
 //			cfg.setClassForTemplateLoading(this.getClass(), "/template");
 			StringTemplateLoader stl = new StringTemplateLoader();
 //			System.out.println(generateTemplate(template_name));
-			stl.putTemplate(template_name, generateTemplate(template_name));
+			stl.putTemplate(template_name, generateTemplateFromContext(template_name));
 //			System.out.print(stl.findTemplateSource(template_name));
 			cfg.setTemplateLoader(stl);
 			Template temp = cfg.getTemplate(template_name);
@@ -345,7 +355,7 @@ public class RDFaAnnotator {
 	
 	public static void main(String [] args){
 		RDFaAnnotator rdfaa = new RDFaAnnotator("http://www.w3.org/TR/owl-guide/wine.rdf", "http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine");
-		rdfaa.createMapTreeForTopicURI();
+		rdfaa.createMapTreeForTopicURIFromContext();
 		rdfaa.generateRDFa("");
 	}
 }

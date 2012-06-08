@@ -93,13 +93,4 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
     	<url-pattern>/baxtree/apis/TriplesGleaner</url-pattern>
   	</servlet-mapping>
   	
-  	<servlet>
-    	<servlet-name>RDFaValidator</servlet-name>
-    	<servlet-class>baxtree.apis.RDFaValidator</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-   		<servlet-name>RDFaValidator</servlet-name>
-    	<url-pattern>/baxtree/apis/RDFaValidator</url-pattern>
-  	</servlet-mapping>
-  	
  </web-app>

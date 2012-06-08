@@ -39,7 +39,7 @@ public class FederatedRDFaAnnotator {
 				rdfaa = new RDFaAnnotator(rdf_url);
 			else
 				rdfaa = new RDFaAnnotator(rdf_url, topic_uri);
-			rdfaa.createMapTreeForTopicURI();
+			rdfaa.createMapTreeForTopicURIFromContext();
 			String temp = rdfaa.generateRDFa("");
 			Map<String, String> prefixes = rdfaa.getPrefixes();
 			Set<String> pres = prefixes.keySet();
@@ -70,7 +70,7 @@ public class FederatedRDFaAnnotator {
 				rdfaa = new RDFaAnnotator(rdf_url);
 			else
 				rdfaa = new RDFaAnnotator(rdf_url, topic_uri);
-			rdfaa.createMapTreeForTopicURI();
+			rdfaa.createMapTreeForTopicURIFromContext();
 			String temp = rdfaa.applyTemplate("", template);
 			Map<String, String> prefixes = rdfaa.getPrefixes();
 			Set<String> pres = prefixes.keySet();

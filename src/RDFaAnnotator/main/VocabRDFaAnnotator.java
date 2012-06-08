@@ -75,13 +75,13 @@ public class VocabRDFaAnnotator {
 		int class_count = 0;
 		int property_count = 0;
 		for(String cla : this.classes){
-			rdfaa.createMapTreeForTopicURI(cla);
+			rdfaa.createMapTreeForTopicURIFromContext(cla);
 			class_snippet += "<br/><hr/>" + rdfaa.generateRDFa(cla);
 			class_count++;
 		}
 		String property_snippet = "";
 		for(String pro : this.properties){
-			rdfaa.createMapTreeForTopicURI(pro);
+			rdfaa.createMapTreeForTopicURIFromContext(pro);
 			property_snippet += "<br/><hr/>" + rdfaa.generateRDFa(pro);
 			property_count++;
 		}

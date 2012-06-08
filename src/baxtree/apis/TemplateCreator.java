@@ -20,7 +20,7 @@ public class TemplateCreator extends HttpServlet {
 		TemplateGenerater tg = new TemplateGenerater(rdf_url, topic_uri);
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(tg.createTemplate(""));
+		out.println(tg.createTemplateFromContext(""));
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

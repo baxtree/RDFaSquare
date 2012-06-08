@@ -23,21 +23,30 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 public class TemplateGenerater {
 
-	private String template_str = "";
-	private String topic_uri;
-	private Model model;
-	private String img_formats = ".avi|.bmp|.emf|.gif|.jpg|.jpeg|.mov|.mpg|.mpeg|.png|.wmf|.xbm";
-	private String page_formats = ".html|.htm|.shtml|.asp|.jsp|.cgi|.php";
+	protected String template_str = "";
+	protected String endpoint_url = "";
+	protected String topic_uri;
+	protected Model model;
+	protected String img_formats = ".avi|.bmp|.emf|.gif|.jpg|.jpeg|.mov|.mpg|.mpeg|.png|.wmf|.xbm";
+	protected String page_formats = ".html|.htm|.shtml|.asp|.jsp|.cgi|.php";
+	
+	public TemplateGenerater(String endpoint_url, String topic_uri, String endpoint_name){
+		this.endpoint_url = endpoint_url;
+		this.topic_uri = topic_uri;
+	}
+	
 	public TemplateGenerater(Model model, String topic_uri){
 		this.model = model;
 		this.topic_uri = topic_uri;
 	}
+	
 	public TemplateGenerater(String rdf_url, String topic_uri){
 		this.model = ModelFactory.createDefaultModel();
 		this.model = RDFModelLoader.loadTriplesFromURL(rdf_url);
 		this.topic_uri = topic_uri;
 	}
-	public String createTemplate(String template_name){
+	
+	public String createTemplateFromContext(String template_name){
 //		String topic_local_name = this.model.getResource(this.topic_uri).getLocalName();
 //		if(topic_local_name != null && !topic_local_name.equals(""))
 //			template_str += "<div about=\"${topic.topicuri}\">about: <a href=\"${topic.topicuri}\">"+topic_local_name+"</a><br/>\r\n\r\n";
@@ -237,6 +246,6 @@ public class TemplateGenerater {
 			ioe.printStackTrace();
 		}
 		TemplateGenerater itg = new TemplateGenerater(model, topic_uri);
-		itg.createTemplate("foaftemplate");
+		itg.createTemplateFromContext("foaftemplate");
 	}
 }
