@@ -23,6 +23,8 @@ public class RDFModelLoader {
 		try {
 			URL url = new URL(rdf_url);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestProperty("Accept", "application/rdf+xml");
+			con.connect();
 			// String accept = con.getRequestProperty("Accept");
 			InputStream is = con.getInputStream();
 			InputStreamReader isr = new InputStreamReader(is, "UTF-8");
@@ -46,7 +48,7 @@ public class RDFModelLoader {
 //				model = fm.loadModel(rdf_url, "RDF/XML");
 			}
 			model = savePrefixForFreemarker(model);
-			model.write(new PrintWriter(System.out), "RDF/XML");
+//			model.write(new PrintWriter(System.out), "RDF/XML");
 			return model;
 		} catch (MalformedURLException murle) {
 			murle.printStackTrace();

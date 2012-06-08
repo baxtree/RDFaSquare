@@ -27,7 +27,7 @@ public class Converter {
 		latest.put("url", "products/greenmouse.html");
 		latest.put("name", "green mouse");
 
-		System.out.println(root);
+//		System.out.println(root);
 		
 		try {
 			Configuration cfg = new Configuration();

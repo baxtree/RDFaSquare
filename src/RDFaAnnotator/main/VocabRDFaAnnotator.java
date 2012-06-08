@@ -28,6 +28,18 @@ public class VocabRDFaAnnotator {
 			this.model = RDFModelLoader.loadTriplesFromURL(vocab_url);
 		else
 			this.model = RDFModelLoader.loadTriplesFromString(vocab_url);
+	}
+
+	public ArrayList<String> getVocabClasses(){
+		return this.classes;
+	}
+	
+	public ArrayList<String> getVocabProperties(){
+		return this.properties;
+	}
+	
+	public String gernerateRDFa(String type){
+		long begin = System.currentTimeMillis();
 		String querystr = 	"	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
 		"	PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
 		"	PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
@@ -56,17 +68,6 @@ public class VocabRDFaAnnotator {
 				this.properties.add(pro.getURI());
 			}
 		}
-	}
-
-	public ArrayList<String> getVocabClasses(){
-		return this.classes;
-	}
-	
-	public ArrayList<String> getVocabProperties(){
-		return this.properties;
-	}
-	
-	public String gernerateRDFa(String type){
 		RDFaAnnotator rdfaa = new RDFaAnnotator(this.model);
 		rdfaa.setCurrentContextURL(this.vocab_url);
 		String xhtmlrdfa = "";
@@ -84,14 +85,17 @@ public class VocabRDFaAnnotator {
 			property_snippet += rdfaa.generateRDFa(pro);
 			property_count++;
 		}
+		long end = System.currentTimeMillis();
 		if(!property_snippet.equals("")){
+			System.out.println(end-begin+"ms");
 			xhtmlrdfa = "<h3 style=\"margin:0;padding:0\">Classes ("+class_count+"):</h3><br/>" + class_snippet + "<h3 style=\"margin:0;padding:0\">Properties ("+property_count+"):</h3><br/>" + property_snippet;
 			return RDFaAnnotator.decorateRDFa(rdfaa.getPrefixes(), xhtmlrdfa, type);
 		}
 		else{
+			System.out.print(end-begin+"ms ");
+			System.err.println("No class or property information inside this file.");
 			return "No class or property information inside this file.";
 		}
-		
 	}
 	
 	public static void main(String[] args){

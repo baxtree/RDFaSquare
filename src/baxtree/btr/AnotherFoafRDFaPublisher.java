@@ -120,7 +120,7 @@ public class AnotherFoafRDFaPublisher {
 				cfg.setClassForTemplateLoading(this.getClass(), "/template");
 				Template temp = cfg.getTemplate("annotherFoafInRDFa.ftl");
 //				Writer out = new OutputStreamWriter(System.out);
-				System.out.println(root);
+//				System.out.println(root);
 				temp.process(root, this.out);
 				this.out.flush();
 			} catch (TemplateException te) {

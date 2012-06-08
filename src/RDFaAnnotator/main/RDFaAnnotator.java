@@ -90,7 +90,7 @@ public class RDFaAnnotator {
 			this.model = RDFModelLoader.loadTriplesFromURL(this.rdf_url);
 		else
 		{
-			System.out.println(this.rdf_url);
+//			System.out.println(this.rdf_url);
 			this.model = RDFModelLoader.loadTriplesFromString(this.rdf_url);
 		}
 	}
@@ -256,7 +256,7 @@ public class RDFaAnnotator {
 			cfg.setEncoding(cfg.getLocale(), "UTF-8");
 //			cfg.setClassForTemplateLoading(this.getClass(), "/template");
 			StringTemplateLoader stl = new StringTemplateLoader();
-			System.out.println(generateTemplate(template_name));
+//			System.out.println(generateTemplate(template_name));
 			stl.putTemplate(template_name, generateTemplate(template_name));
 //			System.out.print(stl.findTemplateSource(template_name));
 			cfg.setTemplateLoader(stl);
