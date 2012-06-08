@@ -26,7 +26,7 @@ public class TemplateGeneraterForService extends TemplateGenerater{
 			Query query = QueryFactory.create(querystr);
 			QueryExecution qe = QueryExecutionFactory.sparqlService(endpoint_url, query);
 			ResultSet results = qe.execSelect();
-			qe.close();	
+				
 		createSubjectTemplate(results);
 		String querystr2 = 	
 			"	SELECT ?s ?p" +
@@ -37,11 +37,13 @@ public class TemplateGeneraterForService extends TemplateGenerater{
 			Query query2 = QueryFactory.create(querystr2);
 			QueryExecution qe2 = QueryExecutionFactory.sparqlService(endpoint_url, query2);
 			ResultSet results2 = qe2.execSelect();
-			qe2.close();	
+			
 		createObjectTemplate(results2);
 		template_str += "</div>\r\n" +
 		//"<iframe name=\"dereference\" style=\"display:none\"></iframe>\r\n" +
 		"\r\n";
+		qe.close();
+		qe2.close();	
 		return template_str;
 	}
 	

@@ -47,7 +47,7 @@ public class RDFaAnnotatorForService extends RDFaAnnotator {
 		Query query = QueryFactory.create(querystr);
 		QueryExecution qe = QueryExecutionFactory.sparqlService(this.endpoint_url, query);
 		ResultSet results = qe.execSelect();
-		qe.close();	
+			
 		createSubjectTopicTree(topic, results);
 		
 		String querystr2 = 	
@@ -59,8 +59,10 @@ public class RDFaAnnotatorForService extends RDFaAnnotator {
 		Query query2 = QueryFactory.create(querystr2);
 		QueryExecution qe2 = QueryExecutionFactory.sparqlService(this.endpoint_url, query2);
 		ResultSet results2 = qe2.execSelect();
-		qe2.close();	
+		
 		createObjectTopicTree(topic, results2);
+		qe.close();
+		qe2.close();	
 	}
 	
 	public void createSubjectTopicTree(Map topic, ResultSet results){

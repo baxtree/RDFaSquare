@@ -51,8 +51,8 @@ public class NodeStatist {
 				properties.add(pro);
 			if(pro.getLocalName().equalsIgnoreCase("type"))
 				continue;
-			if(subject.canAs(Class.class))
-				continue;
+//			if(subject.canAs(Class.class))
+//				continue;
 			if(subject.isAnon())
 				anonymous_resource.put(subject.toString(), subject);
 			if(object.isAnon())

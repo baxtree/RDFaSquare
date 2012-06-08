@@ -63,7 +63,6 @@ public class TemplateGenerater {
 			Query query = QueryFactory.create(querystr);
 			QueryExecution qe = QueryExecutionFactory.create(query, model);
 			ResultSet results = qe.execSelect();
-			qe.close();	
 		for(;results.hasNext();){
 			QuerySolution qs = results.nextSolution();
 			Resource property = (Resource) qs.get("p");
@@ -138,6 +137,7 @@ public class TemplateGenerater {
 				}
 			}
 		}
+		qe.close();
 		
 		preprouri = "";
 		
@@ -151,7 +151,6 @@ public class TemplateGenerater {
 			Query query2 = QueryFactory.create(querystr2);
 			QueryExecution qe2 = QueryExecutionFactory.create(query2, model);
 			ResultSet results2 = qe2.execSelect();
-			qe2.close();	
 		for(;results2.hasNext();){
 			QuerySolution qs = results2.nextSolution();
 			Resource property = (Resource) qs.get("p");
@@ -202,6 +201,7 @@ public class TemplateGenerater {
 			}
 			
 		}
+		qe2.close();
 //		System.out.println(template_str); 
 		template_str += "</div>\r\n" +
 						//"<iframe name=\"dereference\" style=\"display:none\"></iframe>\r\n" +

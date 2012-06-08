@@ -70,7 +70,7 @@ public class MyFoafRDFaPublisher {
 			Query query = QueryFactory.create(querystr);
 			QueryExecution qe = QueryExecutionFactory.create(query, model);
 			ResultSet results = qe.execSelect();
-			qe.close();
+			
 			Map root = new HashMap();
 			Map personal = new HashMap();
 			Map knows = new HashMap();
@@ -103,6 +103,7 @@ public class MyFoafRDFaPublisher {
 				qs.get("name").toString();
 				id++;
 			}
+			qe.close();
 			try {
 				Configuration cfg = new Configuration();
 				cfg.setDirectoryForTemplateLoading(new File("."));

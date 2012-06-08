@@ -69,7 +69,6 @@ public class StrongestFoafRDFaPublisher {
 			Query query = QueryFactory.create(querystr);
 			QueryExecution qe = QueryExecutionFactory.create(query, model);
 			ResultSet results = qe.execSelect();
-			qe.close();			
 			
 			personal.put("topicuri", this.topic_uri);
 			
@@ -108,6 +107,7 @@ public class StrongestFoafRDFaPublisher {
 				}
 				
 			}
+			qe.close();	
 			
 			Map knows = new HashMap();
 			root.put("knows", knows);
@@ -122,7 +122,7 @@ public class StrongestFoafRDFaPublisher {
 			Query query2 = QueryFactory.create(querystr2);
 			QueryExecution qe2 = QueryExecutionFactory.create(query2, model);
 			ResultSet rs2 = qe2.execSelect();
-			qe2.close();
+			
 			int count2 = 0;
 			String preprouri2 = "";
 			ArrayList<String> person_uris = new ArrayList<String>();
@@ -178,6 +178,7 @@ public class StrongestFoafRDFaPublisher {
 					}
 				}
 			}
+			qe2.close();
 			transform(root, this.out);
 		}
 		catch (MalformedURLException murle){

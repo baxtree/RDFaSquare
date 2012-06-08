@@ -116,7 +116,6 @@ public class RDFaAnnotator {
 		Query query = QueryFactory.create(querystr);
 		QueryExecution qe = QueryExecutionFactory.create(query, model);
 		ResultSet results = qe.execSelect();
-		qe.close();	
 		
 		Map topic = new HashMap();
 		root.put("topic", topic);
@@ -197,7 +196,7 @@ public class RDFaAnnotator {
 			}
 			*/
 		}
-		
+		qe.close();	
 		
 		//?s ?p topic			copied and pasted codes here and it needs refactoring
 		String querystr2 = 	
@@ -209,7 +208,6 @@ public class RDFaAnnotator {
 		Query query2 = QueryFactory.create(querystr2);
 		QueryExecution qe2 = QueryExecutionFactory.create(query2, model);
 		ResultSet results2 = qe2.execSelect();
-		qe2.close();	
 		
 		count = 0;
 		preprouri = "";
@@ -245,6 +243,7 @@ public class RDFaAnnotator {
 //				uee.printStackTrace();
 //			}
 		}
+		qe2.close();
 //		System.out.println(root);
 	}
 	
@@ -265,13 +264,14 @@ public class RDFaAnnotator {
 			cfg.setEncoding(cfg.getLocale(), "UTF-8");
 //			cfg.setClassForTemplateLoading(this.getClass(), "/template");
 			StringTemplateLoader stl = new StringTemplateLoader();
-//			System.out.println(generateTemplate(template_name));
+//			System.out.println("template: " + generateTemplateFromContext(template_name));
 			stl.putTemplate(template_name, generateTemplateFromContext(template_name));
 //			System.out.print(stl.findTemplateSource(template_name));
 			cfg.setTemplateLoader(stl);
 			Template temp = cfg.getTemplate(template_name);
 			StringWriter sw = new StringWriter();
-			temp.process(root, sw);
+			System.out.println("root: " + root.toString());
+			temp.process(root, sw); //this does not work so sw.toString is empty.
 			String rdfa = "";
 			if(RDFModelLoader.isValidURL(this.rdf_url))
 				rdfa = LabelFinder.applyLabelToResource(this.model, sw.toString()) + voiDGenerater.getvoiDDIV(this.topic_uri, this.rdf_url)+ "\r\n\r\n";
@@ -321,16 +321,17 @@ public class RDFaAnnotator {
 	public static String decorateRDFa(Map<String, String> prefixes, String body_content, String type){
 		String template_str = "";
 		if(type.equalsIgnoreCase("complete")){
-			template_str = MyFunctions.DOCTYPE + "\r\n" + MyFunctions.DEFAULT_HTML_ATTRIBUTES +"\r\n";
+			template_str = MyFunctions.DOCTYPE + " \r\n" + MyFunctions.DEFAULT_HTML_ATTRIBUTES +" \r\n";
 			Set<String> pres = prefixes.keySet();
 			String temp = "";
 			for(String prefix : pres){
-				temp += "xmlns:"+prefix + "=\"" + prefixes.get(prefix) + "\"\r\n"; 
+				temp += "xmlns:"+prefix + "=\"" + prefixes.get(prefix) + "\" \r\n"; 
 			}
-			template_str += temp + ">\r\n";
+			template_str += ((temp.length() > 1)? temp.substring(0, temp.length() - 1) : temp) + ">\r\n";
 			template_str += "<head>\r\n"+MyFunctions.DEFAULT_META+MyFunctions.UI+"\r\n<title>change the title here ... </title>\r\n</head>\r\n<body>\r\n";
 			template_str += body_content;
 			template_str += "</body>\r\n</html>";
+			System.out.println(template_str);
 			return template_str;
 		}
 		else if(type.equalsIgnoreCase("partial")){
@@ -338,9 +339,9 @@ public class RDFaAnnotator {
 			Set<String> pres = prefixes.keySet();
 			String temp = "";
 			for(String prefix : pres){
-				temp += "xmlns:"+prefix + "=\"" + prefixes.get(prefix) + "\"\r\n"; 
+				temp += "xmlns:"+prefix + "=\"" + prefixes.get(prefix) + "\" \r\n"; 
 			}
-			template_str += temp + ">\r\n";
+			template_str += ((temp.length() > 1)? temp.substring(0, temp.length() - 1) : temp) + ">\r\n";
 			template_str += body_content;
 			template_str += "</div>";
 			template_str = template_str.replaceAll(">[^<]+?<", "><");

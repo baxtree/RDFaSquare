@@ -68,6 +68,7 @@ public class VocabRDFaAnnotator {
 				this.properties.add(pro.getURI());
 			}
 		}
+		qe.close();
 		RDFaAnnotator rdfaa = new RDFaAnnotator(this.model);
 		rdfaa.setCurrentContextURL(this.vocab_url);
 		String xhtmlrdfa = "";

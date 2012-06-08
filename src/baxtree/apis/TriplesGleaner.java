@@ -14,6 +14,8 @@ import baxtree.btr.MyFunctions;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
+import de.dfki.km.json.jsonld.impl.JenaJSONLDSerializer;
+
 public class TriplesGleaner extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -59,6 +61,9 @@ public class TriplesGleaner extends HttpServlet {
 			else if(serialization.equalsIgnoreCase("N3")){
 				response.setHeader("Content-Disposition", "attachment; filename=annotated.n3");
 			}
+			else if(serialization.equalsIgnoreCase("JSON-LD")){
+				response.setHeader("Content-Disposition", "attachment; filename=annotated.jsonld");
+			}
 			StringReader sr = new StringReader(rdfa_content);
 			try{
 				Class.forName("net.rootdev.javardfa.RDFaReader");
@@ -66,8 +71,16 @@ public class TriplesGleaner extends HttpServlet {
 			catch(ClassNotFoundException cnfe){
 				cnfe.printStackTrace();
 			}
-			rdfa_content_model.read(sr, base, "XHTML");		
-			rdfa_content_model.write(op, serialization);
+			rdfa_content_model.read(sr, base, "XHTML");	
+			if(serialization.equalsIgnoreCase("JSON-LD")){
+				JenaJSONLDSerializer serializer = new JenaJSONLDSerializer();
+				serializer.importModel(rdfa_content_model);
+				String jsonldStr = serializer.asString();;
+				op.write(jsonldStr.getBytes());
+			}
+			else{
+				rdfa_content_model.write(op, serialization);
+			}
 			op.flush();
 			op.close();
 		}

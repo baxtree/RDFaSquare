@@ -33,7 +33,7 @@
 		
 		function publish(){
 			var screenshot = document.getElementById("screenshot");
-			screenshot.style.display = "none";
+			if(screenshot != undefined && screenshot != null) screenshot.style.display = "none";
 			var selection = document.getElementById("publishingtype");
 			var pubtype = selection.options[selection.selectedIndex].value;
 			if(pubtype == 0){

@@ -24,7 +24,6 @@ import com.hp.hpl.jena.sparql.algebra.Algebra;
 import com.hp.hpl.jena.sparql.algebra.Op;
 import com.hp.hpl.jena.sparql.algebra.OpWalker;
 import com.hp.hpl.jena.sparql.core.BasicPattern;
-import com.hp.hpl.jena.sparql.engine.optimizer.core.BasicPatternVisitor;
 import com.hp.hpl.jena.sparql.syntax.Element;
 
 public class MySPARQLParser {
@@ -71,45 +70,45 @@ public class MySPARQLParser {
 		}
 	}
 
-	public static void main(String[] args){
-		MySPARQLParser msp = new MySPARQLParser();
-		String querystr = 	
-			"	PREFIX foaf: <http://xmlns.com/foaf/0.1/>" +
-			"	SELECT ?name ?o" +
-			"	{" +
-			"		?s foaf:name ?name." +
-			"		?s foaf:knows ?o." +
-			"	}" +
-			"	ORDER BY ?s";
-			Query query = QueryFactory.create(querystr);
-			BasicPatternVisitor visitor = new BasicPatternVisitor() ;
-			Element el = query.getQueryPattern() ;
-			Op op = Algebra.compile(el) ;
-			OpWalker.walk(op, visitor) ;
-			List patterns = visitor.getPatterns() ;
-			int count = 0;
-			for (Iterator iter = patterns.iterator(); iter.hasNext();){
-				BasicPattern pattern = (BasicPattern)iter.next() ;
-				for(Iterator iter2 = pattern.iterator(); iter2.hasNext();){
-					Triple triple = (Triple) iter2.next();
-					System.out.println("subject: "+triple.getSubject());
-					System.out.println("predicate: "+triple.getPredicate().toString(query.getPrefixMapping()));
-					System.out.println("object: "+triple.getObject().toString(query.getPrefixMapping()));
-				}
-			}
-			
-			QueryExecution qe = QueryExecutionFactory.create(query, msp.loadTriplesFromURL("http://www.w3.org/People/Berners-Lee/card"));
-			ResultSet results = qe.execSelect();
-			qe.close();	
-		while(results.hasNext()){
-			QuerySolution qs = results.nextSolution();
-			Iterator vnames = qs.varNames();
-			while(vnames.hasNext()){
-				String vname = (String)vnames.next();
-				System.out.print(vname + ", ");
-			}
-			System.out.println();
-		}
-		
-	}
+//	public static void main(String[] args){
+//		MySPARQLParser msp = new MySPARQLParser();
+//		String querystr = 	
+//			"	PREFIX foaf: <http://xmlns.com/foaf/0.1/>" +
+//			"	SELECT ?name ?o" +
+//			"	{" +
+//			"		?s foaf:name ?name." +
+//			"		?s foaf:knows ?o." +
+//			"	}" +
+//			"	ORDER BY ?s";
+//			Query query = QueryFactory.create(querystr);
+//			BasicPatternVisitor visitor = new BasicPatternVisitor() ;
+//			Element el = query.getQueryPattern() ;
+//			Op op = Algebra.compile(el) ;
+//			OpWalker.walk(op, visitor) ;
+//			List patterns = visitor.getPatterns() ;
+//			int count = 0;
+//			for (Iterator iter = patterns.iterator(); iter.hasNext();){
+//				BasicPattern pattern = (BasicPattern)iter.next() ;
+//				for(Iterator iter2 = pattern.iterator(); iter2.hasNext();){
+//					Triple triple = (Triple) iter2.next();
+//					System.out.println("subject: "+triple.getSubject());
+//					System.out.println("predicate: "+triple.getPredicate().toString(query.getPrefixMapping()));
+//					System.out.println("object: "+triple.getObject().toString(query.getPrefixMapping()));
+//				}
+//			}
+//			
+//			QueryExecution qe = QueryExecutionFactory.create(query, msp.loadTriplesFromURL("http://www.w3.org/People/Berners-Lee/card"));
+//			ResultSet results = qe.execSelect();
+//			qe.close();	
+//		while(results.hasNext()){
+//			QuerySolution qs = results.nextSolution();
+//			Iterator vnames = qs.varNames();
+//			while(vnames.hasNext()){
+//				String vname = (String)vnames.next();
+//				System.out.print(vname + ", ");
+//			}
+//			System.out.println();
+//		}
+//		
+//	}
 }

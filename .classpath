@@ -4,29 +4,32 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.genuitec.eclipse.j2eedt.core.J2EE14_CONTAINER"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/antlr-2.7.5.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/arq-extra.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/arq.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/concurrent.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/cos.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/freemarker.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/icu4j_3_4.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/iri.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/java-rdfa-0.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javabib-bin.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jena.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jenatest.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/junit.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.12.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/lucene-core-2.3.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/stax-api-1.0.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/wstx-asl-3.0.0.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xercesImpl.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xml-apis.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/BrowserLauncher2-10.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/grddl.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/nekohtml.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/saxon8.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jackson-core-asl-1.8.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jackson-mapper-asl-1.8.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jsonld.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jena-2.6.4-tests.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jena-2.6.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/icu4j-3.4.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/iri-0.8.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/junit-4.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/wstx-asl-3.2.9.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xercesImpl-2.7.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/arq-2.8.7.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
