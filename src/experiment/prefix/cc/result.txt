@@ -1,6 +1,0 @@
-<<<<http://xmlns.com/foaf/0.1/>>>>
-3047ms
-
-<<<<http://purl.org/dc/terms/>>>>
-1688ms
-

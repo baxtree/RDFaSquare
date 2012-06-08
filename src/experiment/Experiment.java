@@ -175,8 +175,27 @@ public class Experiment {
 		}
 	}
 	
+	public void addLineNumber(String file_path){
+		try{
+			File file = new File(file_path);
+			FileInputStream fis = new FileInputStream(file);
+			InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(isr);
+			String result = "";
+			int i = 1;
+			while((result = br.readLine()) != null){
+				if(result.startsWith("#")) continue;
+				System.out.println(i+" "+result);
+				i++;
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args){
 		Experiment exp = new Experiment();
-		exp.experimentWithAnRdfHarvesterStartingPoint();
+		exp.addLineNumber("D:\\software\\gp425win32\\gnuplot\\bin\\WRDFHSP.dat");
 	}
 }
