@@ -49,36 +49,38 @@
 			</select>
 			<span class="button"><a id="strip" href="javascript:" onclick="publish();"><span style="background: #fff; padding: 5px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">GO!</span></span></a></span><img id="publish_loader" src="resource/ajax-loader.gif" style="display:none"/>
 		</div>	
-		<div id="markup" style="display:none">
-			<label>XHTML+RDFa source code:</label><input class="guessbutton" type="button" value="Show Freestyle Editor" id="show_editor" onclick="show_editor();this.blur();"></input>&nbsp;<input class="guessbutton" type="button" value="Edit Raw" id="edit_source" onclick="edit_source();this.blur();"></input>
-			<textarea id="xhtmlrdfa" readonly="readonly" disabled="disabled" onKeyUp="update();"></textarea>
-			<span class="button"><a id="strip" href="javascript:" onclick="strip_indicators();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">strip indicators</span></span></a></span>
-			<span class="button"><a id="showindicator" href="javascript:" onclick="show_indicators();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">before last striping</span></span></a></span>
-			<div id="tip">PS: Indicators in the form of [info: property] are used for offering additional infomation about the extracted items. You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
-		</div>
-		<div id="previewpage" style="display:none">
-			<label>Page preview:</label><input class="guessbutton" type="button" value="See In A Full Window" id="show_full_window" onclick="show_full_window();this.blur();"></input><!-- a name="vocabnavi" style="display:none" href="javascript:" onclick="javascript:document.getElementById('preview').contentDocument.getElementById('classes').focus();">to classes</a><span/><a name="vocabnavi" style="display:none" href="javascript:" onclick="javascript:document.getElementById('preview').contentDocument.getElementById('properties').focus();">to properties</a-->
-			<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe><br/>
-			<form name="raw_form" method="post" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" action="http://validator.w3.org/check" style="display:none;" target="_blank">
-				<input type="textarea" name="fragment" value=""></input>
-			</form>
-			<span class="button"><a id="validaterdfa" href="javascript:" onclick="validate_xhtmlrdfa();this.blur();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">validate before export</span></span></a></span><br/>
-			<select id="serialization">
-				<option value="0" selected="selected">XHTML + RDFa</option>
-				<option value="1">RDF/XML</option>
-				<option value="2">RDF/XML-ABBREV</option>
-				<option value="3">N-TRIPLE</option>
-				<option value="4">TURTLE</option>
-				<option value="5">N3</option>
-				<option value="6">JSON-LD</option>
-				<!-- option value="6">JSON</option-->
-			</select>
-			<form id="glean_form" action="/rdfasquare/baxtree/apis/TriplesGleaner" method="POST" style="display:none;">
-				<input type="text" name="rdfacontent" value=""/>
-				<input type="text" name="baseuri" value=""/>
-				<input type="text" name="format" value=""/>
-			</form>
-			<span class="button"><a id="glean" href="javascript:" onclick="glean_triples();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">export</span></span></a></span>
+		<div style="float: none !important;">
+			<div id="markup" style="display:none;">
+				<label>XHTML+RDFa source code:</label><input class="guessbutton" type="button" value="Show Freestyle Editor" id="show_editor" onclick="show_editor();this.blur();"></input>&nbsp;<input class="guessbutton" type="button" value="Edit Raw" id="edit_source" onclick="edit_source();this.blur();"></input>
+				<textarea id="xhtmlrdfa" readonly="readonly" disabled="disabled" onKeyUp="update();"></textarea>
+				<span class="button"><a id="strip" href="javascript:" onclick="strip_indicators();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">strip indicators</span></span></a></span>
+				<span class="button"><a id="showindicator" href="javascript:" onclick="show_indicators();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">before last striping</span></span></a></span>
+				<div id="tip">PS: Indicators in the form of [info: property] are used for offering additional infomation about the extracted items. You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
+			</div>
+			<div id="previewpage" style="display:none">
+				<label>Page preview:</label><input class="guessbutton" type="button" value="See In A Full Window" id="show_full_window" onclick="show_full_window();this.blur();"></input><!-- a name="vocabnavi" style="display:none" href="javascript:" onclick="javascript:document.getElementById('preview').contentDocument.getElementById('classes').focus();">to classes</a><span/><a name="vocabnavi" style="display:none" href="javascript:" onclick="javascript:document.getElementById('preview').contentDocument.getElementById('properties').focus();">to properties</a-->
+				<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe><br/>
+				<form name="raw_form" method="post" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" action="http://validator.w3.org/check" style="display:none;" target="_blank">
+					<input type="textarea" name="fragment" value=""></input>
+				</form>
+				<span class="button"><a id="validaterdfa" href="javascript:" onclick="validate_xhtmlrdfa();this.blur();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">validate before export</span></span></a></span><br/>
+				<select id="serialization">
+					<option value="0" selected="selected">XHTML + RDFa</option>
+					<option value="1">RDF/XML</option>
+					<option value="2">RDF/XML-ABBREV</option>
+					<option value="3">N-TRIPLE</option>
+					<option value="4">TURTLE</option>
+					<option value="5">N3</option>
+					<option value="6">JSON-LD</option>
+					<!-- option value="6">JSON</option-->
+				</select>
+				<form id="glean_form" action="/rdfasquare/baxtree/apis/TriplesGleaner" method="POST" style="display:none;">
+					<input type="text" name="rdfacontent" value=""/>
+					<input type="text" name="baseuri" value=""/>
+					<input type="text" name="format" value=""/>
+				</form>
+				<span class="button"><a id="glean" href="javascript:" onclick="glean_triples();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #666666; background: #f90; padding: 0px 10px;">export</span></span></a></span>
+			</div>
 		</div>
 		<div id="footer">
 			<div id="altnav">

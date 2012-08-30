@@ -3,6 +3,9 @@ body {
 	font-size: 20px;
 	color: #666666;
 	background: #ffffff;
+	-webkit-border-radius: 2px !important; 
+	-moz-border-radius: 2px !important; 
+	border-radius: 2px !important;
 }
 
 h1{
@@ -102,10 +105,14 @@ a:visited{
 }
 
 #container{
-	margin: 0;
-	padding: 0;
-	padding-bottom: 5px;
+	margin: auto;
+	padding-top: 0px;
 	background: #FFDDAA;
+	width: 960px;
+	min-height: 650px;
+	-webkit-border-radius: 2px !important; 
+	-moz-border-radius: 2px !important; 
+	border-radius: 2px !important;
 }
 
 #navigator{
@@ -218,7 +225,9 @@ label{
 	font-size: 10px;
 	color: #999999;
 	border-top: 1px solid #efefef;
-	padding: 13px 25px;
+	padding-top: 30px;	
+	padding-bottom: 45px;
+	margin-top: 45px !important;
 	line-height: 18px;
 }
 
