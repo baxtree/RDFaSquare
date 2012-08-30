@@ -1,0 +1,315 @@
+body {
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 20px;
+	color: #666666;
+	background: #ffffff;
+	-webkit-border-radius: 2px !important; 
+	-moz-border-radius: 2px !important; 
+	border-radius: 2px !important;
+}
+
+h1{
+	margin: 0;
+	padding: 0;
+	padding-top: 57px;
+	padding-right: 31px;
+	padding-left: 30px;
+	padding-bottom: 2px;
+}
+
+h1 a{
+	text-decoration: none;
+}
+
+h2{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h3{
+	font-style: italic;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+	float: left;
+	padding-top: 0;
+	padding-left: 30px;
+}
+
+h3 span {
+	font-style: normal;
+}
+
+#version {
+	font-size: 10px;
+	margin: 0;
+	padding: 0;
+	float: right;
+	padding-top: 0;
+	padding-left: 30px;
+	padding-bottom: 0;
+}
+
+a:link{
+	text-decoration: none;
+	color: #DF7501;
+}
+
+a:visited{
+	text-decoration: none;
+	color: #DF7501;
+}
+
+.api{
+	font-size: 15px;
+}
+
+#flag{
+	font-style: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	flaot: left;
+	padding-top: 0;
+	padding-left: 10px;
+	padding-bottom: 30px;
+}
+
+#flag a {text-decoration: none}
+
+.button a {text-decoration: none}
+
+.guessbutton {
+	color: #666666;
+	background: #f90;
+	padding: 1px; 
+	font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif;
+	font-size: small; 
+	font-variant: small-caps; 
+	border: 1px solid #f90;
+}
+
+.homepage a {
+	text-decoration: none;
+	color: #DF7501;	
+}
+
+.nodecolink a:link {
+	text-decoration: none;
+	color: #DF7501;
+}
+
+.nodecolink a:visited {
+	text-decoration: none;
+	color: #DF7501;
+}
+
+#container{
+	margin: auto;
+	padding-top: 0px;
+	background: #FFDDAA;
+	width: 960px;
+	min-height: 650px;
+	-webkit-border-radius: 2px !important; 
+	-moz-border-radius: 2px !important; 
+	border-radius: 2px !important;
+}
+
+#navigator{
+	float: right;
+	height: 150px;
+	padding-left: 0px; 
+	overflow: hidden; /*delete the content which exceed the boundary of the father div.*/
+	background: #FF9933;
+	padding: 0;
+}
+
+#navigator #navul{
+	list-style-type: none; /*delete the dot before each list item.*/
+}
+
+#navigator #navul li{
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center; 
+}
+
+#navigator #navul li a:link {color: #FFDDAA; text-decoration: none}
+#navigator #navul li a:visited {background: #FFCC00; text-decoration: none}
+#navigator #navul li a:active {background: #FFCC00; text-decoration: none}
+#navigator #navul li a:hover {color: red;}
+
+#header{
+	height: 150px;
+	background: #FF9933;
+	padding-right: 0;
+}
+
+#header h1 a:link {color: #FFDDAA; text-decoration: none}
+#header h1 a:visited {color: #FFDDAA; text-decoration: none}
+#header h1 a:active {color: #FFDDAA; text-decoration: none}
+#header h1 a:hover {color: #FFDDAA; text-decoration: none}
+
+#forms{
+	float: left;
+	width: 700px;
+	padding-top: 15px;
+	padding-bottom: 0;
+}
+
+#execution{
+	float: left;
+	width: 260px;
+	height: 120px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+#execution button{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#execution #submit{
+	width: 80px;
+	height: 45px;
+}
+
+#screenshot{
+	padding-top: 15px;
+}
+
+#markup{
+	float: left;
+	width: 500px;
+	padding: 0;
+}
+
+#markup #xhtmlrdfa{
+	border: 0;
+	width: 450px;
+	height: 700px;
+}
+
+#previewpage{
+	float: left;
+	width: 450px;
+	height: 700px;
+	padding: 0;
+}
+
+#previewpage #preview{
+	width: 450px;
+	height: 700px;
+	background: #FFFFFF;
+}
+
+label{
+	background: #FFF8DD;
+	margin: 0;
+	padding: 0;
+}
+
+#tip{
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+#footer {
+	clear:both;
+	background: orange;
+	height: 66px;
+	font-family: Tahoma, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+	color: #999999;
+	border-top: 1px solid #efefef;
+	padding-top: 30px;	
+	padding-bottom: 45px;
+	margin-top: 45px !important;
+	line-height: 18px;
+}
+
+#footer a{
+	text-decoration: none;
+}
+
+#footer a:hover{
+	color: #db6d16;
+}
+
+#footer #altnav{
+	width: 350px;
+	float: right;
+	text-align: right;
+}
+
+#footer sup{
+	font-size: 8px;
+}
+
+#template{
+	margin-left: auto;
+	margin-right: auto;
+	border: 0;
+	width: 600px;
+	height: 700px;
+}
+
+/*- Menu Tabs 7--------------------------- */
+
+    #tabs7 {
+      float:left;
+      width:100%;
+      background:#F4A460;
+      font-size:93%;
+      line-height:normal;
+          border-bottom:1px solid #333B66;
+      }
+    #tabs7 ul {
+          margin:0;
+          padding:10px 10px 0 50px;
+          list-style:none;
+      }
+    #tabs7 li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+    #tabs7 #current a span{
+		color:#666666;
+      }
+    #tabs7 a {
+      float:left;
+/*      background:url("css/tableft7.gif") no-repeat left top; */
+      margin:0;
+      padding:0 0 0 4px;
+      text-decoration:none;
+      }
+    #tabs7 a span {
+      float:left;
+      display:block;
+/*      background:url("css/tabright7.gif") no-repeat right top; */
+      padding:5px 15px 4px 6px;
+      color:#999;
+      }
+    /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    #tabs7 a span {float:none;}
+    /* End IE5-Mac hack */
+    #tabs7 a:hover span {
+      color:#FFF8DD;
+      }
+    #tabs7 a:hover {
+      background-position:0% -42px;
+      }
+    #tabs7 a:hover span {
+      background-position:100% -42px;
+      }
+
+      #tabs7 #current a {
+              background-position:0% -42px;
+      }
+      #tabs7 #current a span {
+              background-position:100% -42px;
+      }
