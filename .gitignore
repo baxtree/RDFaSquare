@@ -1,11 +1,9 @@
 *.class
 *.war
 *.ear
-<<<<<<< HEAD
-
+/temp
+/out
 /src*
-=======
->>>>>>> 4a52d849678bae4516e1fc4644ba2f514463acd4
 /.settings*
 .project
 .classpath
@@ -21,7 +19,4 @@ deploy.sh
 .DS_Store
 TODO.txt
 .gitignore
-=======
-/.myeclipse*
-.DS_Store
->>>>>>> 4a52d849678bae4516e1fc4644ba2f514463acd4
+

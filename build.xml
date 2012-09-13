@@ -1,0 +1,48 @@
+<project name="RDFaSquare" basedir="." default="archive">
+	
+	<property name="WEB-INF" value="${basedir}/WebRoot/WEB-INF" />
+	<property name="OUT" value="${basedir}/out" />
+	<property name="WAR_FILE_NAME" value="rdfasquare.war" />
+	<property name="TEMP" value="${basedir}/temp" />
+	
+	<target name="help">
+		<echo>
+			-----------------------------------------
+			compile - Compile
+			archive - Generate WAR file
+			-----------------------------------------
+		</echo>
+	</target>
+	
+	<target name="init" depends="help">
+		<tstamp/>
+		<delete dir="${WEB-INF}/classes" />
+		<mkdir dir="${WEB-INF}/classes" />
+	</target>
+	
+	<target name="compile" depends="init" description="compile the source">
+		<javac 	srcdir="${basedir}/src"
+				destdir="${WEB-INF}/classes"
+				classpathref="libs"
+				classpath="${app.classpath}" 
+		>
+		</javac>
+	</target>
+	
+	<target name="archive" depends="compile" description="generate the .war archive">
+		<delete dir="${OUT}" />
+		<mkdir dir="${OUT}" />
+		<delete dir="${TEMP}" />
+		<mkdir dir="${TEMP}" />
+		<copy todir="${TEMP}">
+			<fileset dir="${basedir}/WebRoot">
+			</fileset>
+		</copy>
+		<war destfile="${OUT}/${WAR_FILE_NAME}" basedir="${TEMP}" compress="true" webxml="${TEMP}/WEB-INF/web.xml" />
+		<delete dir="${TEMP}" />
+	</target>
+	
+	<path id="libs">
+		<fileset includes="*.jar" dir="${WEB-INF}/lib" />
+	</path>
+</project>
