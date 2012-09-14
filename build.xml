@@ -54,7 +54,8 @@
 		<classpath>
 			<pathelement path="${project.class.path}" />
 			<fileset dir="${WEB-INF}/lib/selenium">
-				<include name="**/*.jar" />
+				<include name="/*.jar" />
+				<include name="/libs/*.jar" />
 			</fileset>
 		</classpath>
 		<test name="test.rdfasquare.RegressionTest" />
