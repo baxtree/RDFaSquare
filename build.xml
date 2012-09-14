@@ -20,6 +20,10 @@
 		<mkdir dir="${WEB-INF}/classes" />
 	</target>
 	
+	<path id="libs">
+		<fileset includes="*.jar" dir="${WEB-INF}/lib" />
+	</path>
+		
 	<target name="compile" depends="init" description="compile the source">
 		<javac 	srcdir="${basedir}/src"
 				destdir="${WEB-INF}/classes"
@@ -42,7 +46,16 @@
 		<delete dir="${TEMP}" />
 	</target>
 	
-	<path id="libs">
-		<fileset includes="*.jar" dir="${WEB-INF}/lib" />
-	</path>
+	<junit showoutput="true">
+		<sysproperty key="mySeleniumServer" value="${mySeleniumServer}" />
+		<sysproperty key="mySeleniumPort" value="${mySeleniumPort}" />
+		<sysproperty key="mySeleniumBrowser" value="${mySeleniumBrowser}" />
+		<sysproperty key="mySeleniumUrl" value="${mySeleniumUrl}" />
+		<classpath>
+			<pathelement path="${project.class.path}" />
+			<fileset dir="${dist.dir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</classpath>
+	</junit>
 </project>
