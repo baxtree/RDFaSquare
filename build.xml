@@ -22,8 +22,8 @@
 	
 	<path id="libs">
 		<fileset includes="*.jar" dir="${WEB-INF}/lib" />
-		<fileset includes="*.jar" dir="${WEB-INF}/selenium" />
-		<fileset includes="*.jar" dir="${WEB_INF}/selenium/libs" />
+		<fileset includes="*.jar" dir="${WEB-INF}/lib/selenium" />
+		<fileset includes="*.jar" dir="${WEB_INF}/lib/selenium/libs" />
 	</path>
 		
 	<target name="compile" depends="init" description="compile the source">
