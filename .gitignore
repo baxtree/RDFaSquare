@@ -1,6 +1,7 @@
 *.class
 *.war
 *.ear
+build.xml
 /temp
 /out
 /src*
@@ -8,7 +9,6 @@
 .project
 .classpath
 .mymetadata
-<<<<<<< HEAD
 BrowserLCC.war
 /promotion*
 deploy.sh
