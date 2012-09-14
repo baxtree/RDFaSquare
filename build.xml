@@ -53,7 +53,7 @@
 		<sysproperty key="mySeleniumUrl" value="${mySeleniumUrl}" />
 		<classpath>
 			<pathelement path="${project.class.path}" />
-			<fileset dir="${dist.dir}">
+			<fileset dir="${WEB-INF}/lib/selenium">
 				<include name="**/*.jar" />
 			</fileset>
 		</classpath>
