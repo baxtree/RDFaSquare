@@ -57,7 +57,7 @@
 				<include name="**/*.jar" />
 			</fileset>
 		</classpath>
-		<test name="test.rdfasquare.RegressionTest">
+		<test name="test.rdfasquare.RegressionTest" />
 	</junit>
 	
 </project>
