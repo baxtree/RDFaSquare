@@ -47,13 +47,13 @@
 		<war destfile="${OUT}/${WAR_FILE_NAME}" basedir="${TEMP}" compress="true" webxml="${TEMP}/WEB-INF/web.xml" />
 		<delete dir="${TEMP}" />
 	</target>
-	
-	<junit showoutput="true">
-		<sysproperty key="mySeleniumServer" value="${mySeleniumServer}" />
-		<sysproperty key="mySeleniumPort" value="${mySeleniumPort}" />
-		<sysproperty key="mySeleniumBrowser" value="${mySeleniumBrowser}" />
-		<sysproperty key="mySeleniumUrl" value="${mySeleniumUrl}" />
-		<test name="test.rdfasquare.RegressionTest" />
-	</junit>
-	
+ 	<target name="test" depends="compile" description="do regression tests">   
+    		<junit showoutput="true">
+			<sysproperty key="mySeleniumServer" value="${mySeleniumServer}" />
+			<sysproperty key="mySeleniumPort" value="${mySeleniumPort}" />
+			<sysproperty key="mySeleniumBrowser" value="${mySeleniumBrowser}" />
+			<sysproperty key="mySeleniumUrl" value="${mySeleniumUrl}" />
+			<test name="test.rdfasquare.RegressionTest" />
+		</junit>
+	</target>
 </project>
