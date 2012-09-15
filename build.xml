@@ -27,15 +27,11 @@
 	</path>
 		
 	<target name="compile" depends="init" description="compile the source">
-		<javac 	srcdir="${basedir}/src"
-				destdir="${WEB-INF}/classes"
-				classpathref="libs"
-				classpath="${app.classpath}" 
-		>
+		<javac 	srcdir="${basedir}/src" destdir="${WEB-INF}/classes" classpathref="libs">
 		</javac>
 	</target>
 	
-	<target name="archive" depends="compile" description="generate the .war archive">
+	<target name="archive" depends="test" description="generate the .war archive">
 		<delete dir="${OUT}" />
 		<mkdir dir="${OUT}" />
 		<delete dir="${TEMP}" />
@@ -47,13 +43,18 @@
 		<war destfile="${OUT}/${WAR_FILE_NAME}" basedir="${TEMP}" compress="true" webxml="${TEMP}/WEB-INF/web.xml" />
 		<delete dir="${TEMP}" />
 	</target>
- 	<target name="test" depends="compile" description="do regression tests">   
-    		<junit showoutput="true">
-			<sysproperty key="mySeleniumServer" value="${mySeleniumServer}" />
-			<sysproperty key="mySeleniumPort" value="${mySeleniumPort}" />
-			<sysproperty key="mySeleniumBrowser" value="${mySeleniumBrowser}" />
-			<sysproperty key="mySeleniumUrl" value="${mySeleniumUrl}" />
-			<test name="test.rdfasquare.RegressionTest" />
+ 	<target name="test" depends="compile" description="do regression tests">
+		<delete dir="${basedir}/src/test/reports" />
+		<mkdir dir="${basedir}/src/test/reports" />  
+    		<junit showoutput="on" printsummary="on">
+			<classpath>
+				<path refid="libs" />
+			</classpath>
+			<formatter type="plain" />
+			<formatter type="xml" />
+			<batchtest todir="${basedir}/src/test/reports">
+				<fileset dir="${WEB-INF}/classes/test/rdfasquare" includes="*.class" />
+			</batchtest>
 		</junit>
 	</target>
 </project>
