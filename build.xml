@@ -4,6 +4,7 @@
 	<property name="OUT" value="${basedir}/out" />
 	<property name="WAR_FILE_NAME" value="rdfasquare.war" />
 	<property name="TEMP" value="${basedir}/temp" />
+	<property name="CLASSES" value="${basedir}/WebRoot/WEB-INF/classes"/>  
 	
 	<target name="help">
 		<echo>
@@ -48,12 +49,13 @@
 		<mkdir dir="${basedir}/src/test/reports" />  
     		<junit showoutput="on" printsummary="on">
 			<classpath>
-				<path refid="libs" />
+				<pathelement location="${CLASSES}" />
+				<path refid="libs" /> 
 			</classpath>
 			<formatter type="plain" />
 			<formatter type="xml" />
 			<batchtest todir="${basedir}/src/test/reports">
-				<fileset dir="${WEB-INF}/classes/test/rdfasquare" includes="*.class" />
+				<fileset dir="${WEB-INF}/classes/test/rdfasquare/" includes="*.class" />
 			</batchtest>
 		</junit>
 	</target>
