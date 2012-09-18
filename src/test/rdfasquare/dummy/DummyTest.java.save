@@ -1,4 +1,6 @@
-package test.rdfasquare.dummy;
+package test.rdfasquare;
+
+import junit.framework.*;
 
 public class DummyTest extends TestCase { 
    public DummyTest(String name) { 

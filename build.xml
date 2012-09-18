@@ -47,16 +47,20 @@
  	<target name="test" depends="compile" description="do regression tests">
 		<delete dir="${basedir}/src/test/reports" />
 		<mkdir dir="${basedir}/src/test/reports" />  
-    		<junit showoutput="on" printsummary="on">
+    		<junit showoutput="ture" printsummary="on">
 			<classpath>
 				<pathelement location="${CLASSES}" />
+				<pathelement location="/usr/share/java/junit-4.10/junit-4.10.jar" />
 				<path refid="libs" /> 
 			</classpath>
 			<formatter type="plain" />
 			<formatter type="xml" />
-			<batchtest todir="${basedir}/src/test/reports">
-				<fileset dir="${WEB-INF}/classes/test/rdfasquare/" includes="*.class" />
-			</batchtest>
+			<!-- <batchtest todir="${basedir}/src/test/reports">
+				<fileset dir="${CLASSES}/test/rdfasquare/dummy" includes="*.class" />
+			</batchtest> -->
+			<test name="test.rdfasquare.RegressionJUnitTest" todir="${basedir}/src/test/reports">
+				<formatter type="plain" />
+			</test>
 		</junit>
 	</target>
 </project>

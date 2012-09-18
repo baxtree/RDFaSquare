@@ -1,0 +1,4 @@
+Testsuite: test.rdfasquare.RegressionJUnitTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 35.962 sec
+
+Testcase: testRDFaSquareTestCaseJUnit took 35.596 sec
