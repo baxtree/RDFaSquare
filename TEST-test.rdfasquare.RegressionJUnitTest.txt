@@ -1,0 +1,14 @@
+Testsuite: test.rdfasquare.RegressionJUnitTest
+Tests run: 1, Failures: 0, Errors: 1, Time elapsed: 0.408 sec
+
+Testcase: testRDFaSquareTestCaseJUnit took 0.063 sec
+	Caused an ERROR
+Could not contact Selenium Server; have you started it on 'localhost:4444' ?
+Read more at http://seleniumhq.org/projects/remote-control/not-started.html
+Connection refused
+java.lang.RuntimeException: Could not contact Selenium Server; have you started it on 'localhost:4444' ?
+Connection refused
+	at com.thoughtworks.selenium.DefaultSelenium.start(DefaultSelenium.java:104)
+	at test.rdfasquare.RegressionJUnitTest.setUp(Unknown Source)
+	at com.thoughtworks.selenium.SeleneseTestCase.runBare(SeleneseTestCase.java:248)
+
