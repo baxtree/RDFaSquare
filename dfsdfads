@@ -1,0 +1,282 @@
+[33mcommit cd3fa5d472617a2ffe448be375e2f30213d45922[m
+Author: baxtree <baxtree@163.com>
+Date:   Fri Sep 14 18:21:45 2012 +0100
+
+    add selenium tests
+
+[33mcommit 93307980bedfbfae3b9792fb08b61d40e7eebf0b[m
+Author: baxtree <baxtree@163.com>
+Date:   Fri Sep 14 18:13:18 2012 +0100
+
+    readd jars
+
+[33mcommit e959525e1c70e93fe55b17c6832247b36638193c[m
+Merge: b597842 d4a9a35
+Author: baxtree <baxtree@163.com>
+Date:   Fri Sep 14 18:08:12 2012 +0100
+
+    add selenium test
+
+[33mcommit b597842a119ca3bd04179e8e2b7d9f309a228265[m
+Author: baxtree <baxtree@163.com>
+Date:   Fri Sep 14 17:43:17 2012 +0100
+
+    add selenium test
+
+[33mcommit d4a9a355e7f172e344cda78976fcb4ad07998720[m
+Author: baxtree <baxtree@163.com>
+Date:   Fri Sep 14 00:30:54 2012 +0100
+
+    add automatic deploy
+
+[33mcommit 7a913c21d0de694c99b7380e399b4d21af230561[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Sep 13 23:45:09 2012 +0100
+
+    remove build.xml
+
+[33mcommit b50fc3ec40c773708eaffa3cd7c36c628daa6255[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Sep 13 19:21:12 2012 +0100
+
+    remove testic.txt
+
+[33mcommit ec88eac981bb298b683b1d53fcc16d90ca8a20b2[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Sep 13 19:11:38 2012 +0100
+
+    test ic
+
+[33mcommit 961580644e1bb24aab5d36babd6f8c5321dbd20a[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Sep 13 17:45:57 2012 +0100
+
+    remove rdfasquare
+
+[33mcommit 6bae1357ba5a02f86cbf923860ee49e34ebdf0e6[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Sep 13 17:42:20 2012 +0100
+
+    add Ant builder
+
+[33mcommit ae51504864e571edbc189a9203271b606ddd10cb[m
+Merge: 53ab5bc 4a52d84
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 17:50:34 2012 +0100
+
+    merging
+
+[33mcommit 53ab5bc0d739c437724311bfa66facce20c22edb[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 17:48:20 2012 +0100
+
+    before merging
+
+[33mcommit 4a52d849678bae4516e1fc4644ba2f514463acd4[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 17:43:14 2012 +0100
+
+    ignore ide files
+
+[33mcommit c1edd7176603822db036cc2aafd4a7b958df7d78[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 17:39:43 2012 +0100
+
+    ignore ide files
+
+[33mcommit 2318ee4ad12b3112055dec370ae1aae43d4f2e22[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 15:33:59 2012 +0100
+
+    cosmetic change
+
+[33mcommit d8ec14ccaf091a19d0b80b90cdff5e61fb74c85d[m
+Merge: cfb382c c731e84
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 15:26:28 2012 +0100
+
+    resolved the conflict
+
+[33mcommit cfb382c2b48691ac6cc31dcf17d347bdebfbdfa4[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 15:24:06 2012 +0100
+
+    import from the SVN repos
+
+[33mcommit c731e84178668a315faeb79e697229a583a05a05[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 15:30:26 2012 +0200
+
+    Update .gitignore
+
+[33mcommit 28ed9fb637948684341aeebd635b213cc14442d7[m
+Author: baxtree <baxtree@163.com>
+Date:   Thu Aug 30 06:30:08 2012 -0700
+
+    Initial commit
+
+[33mcommit 3fadc91f7d61e4b34e1438d47c7a0ac8d4828136[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:34:35 2012 +0000
+
+    add support for the JSON-LD Linked Data format
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@512 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 05cbbb168d2f3a99a434a51a7963dd2a0df73b47[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:34:30 2012 +0000
+
+    reconcile the code with jena 2.6.4 and fix js in index2.html
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@511 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 5cfaa025b58320a2edd05d7bb3c22d80aeff2bb0[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:29:12 2012 +0000
+
+        * fixed CSS for links
+        * a mall bug fixed for the resource representation module.
+    
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@333 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 149793da558b49c5ec13343b1666deec75961a0c[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:22:24 2012 +0000
+
+    change the layout of the front page.
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@282 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit e8484119477cd27d0ef1f194d03ede0f478a009a[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:22:22 2012 +0000
+
+    add screencast to the front page.
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@279 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 5c806570fef302765a3e541943119a73e7e9b016[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:22:21 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@278 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit c063e79f159dbbfe2b39f38015d172b5b19541cd[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:22:14 2012 +0000
+
+    add version number
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@270 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 6538ee6dd7d6fecfcc649132488ce8c9a09579e9[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:22:02 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@264 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit da70f52720b95ac517c4b1a50fcf06ff8890f262[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:59 2012 +0000
+
+    add multi topics and multi contexts and vocabularies screencast
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@263 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit d171751c380c6f2fb48d370d5e485a59e1c45cf4[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:57 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@262 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 8d33c3c1dbda26f0f54f3b6b25d914a3c28dfb7a[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:57 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@261 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 2f3656c7ad193d4040361a380ac5876529d63f38[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:55 2012 +0000
+
+    fix the <img> triple bug
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@260 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit e012a4c3287d3f6a71ba695ede6ead72b726e5c4[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:54 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@259 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit a9f027126de816d64f946cccfde61e13982d6af9[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:51 2012 +0000
+
+    add the W3C RDFa validator
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@257 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit d8ff8cf7cbfe85430803129bf868921db270752d[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:38 2012 +0000
+
+    add the rich editor which may deprecate the textarea with raw xhtml+rdfa
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@255 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit cc26a33b37c4dc8b284c2d49f344fffb994fa2e8[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:36 2012 +0000
+
+    improve outlook
+    
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@254 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit ea036541460f4d807fc3de207d18c6b64dcb37fb[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:35 2012 +0000
+
+    add the blog service
+    
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@253 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 9bb197227534ea4a51b40772b9ec0ee5dfa61e3a[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:34 2012 +0000
+
+    add the menu tab and template.html
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@252 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 0c247e295cc929d81581c3d0b1a3e7eb10a9e291[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:34 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@251 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 31465c32a98efecced1c127088235ccd7f9c3264[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:29 2012 +0000
+
+    repair loaders
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@248 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit 7c22d55e8433e3073fd2d49b775314e96f36f7c2[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:28 2012 +0000
+
+    Add popup window for topic node discovery
+    
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@247 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
+
+[33mcommit c358608b0d2a93a5e2f67fdbc8bb94779d68d25e[m
+Author: s0896253 <s0896253@d7f5ad51-1e5f-4e35-9a39-61d036ba1df1>
+Date:   Fri Jun 8 14:21:18 2012 +0000
+
+    git-svn-id: https://svn.ecdf.ed.ac.uk/repo/inf/infbaxtree/workspace/rdfasquare@231 d7f5ad51-1e5f-4e35-9a39-61d036ba1df1
