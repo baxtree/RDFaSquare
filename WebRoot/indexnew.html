@@ -1,90 +1,127 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>RDFa&sup2;</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<!-- <link rel="stylesheet" href="css/style.css" type="text/css"/> -->
 	<script type="text/javascript" src="javascript/rdfaizer.js"></script>
-	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"></link>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/base/jquery-ui.css"></link>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="javascript/rdfaui.js"></script>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"></link>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	<style type="text/css">
+		section {
+			background-color: rgb(255, 221, 170);
+			width: 960px;
+			margin: auto;
+			padding-top: 0px;
+		}
+		
+		header {
+			background-color: rgb(255, 153, 51);
+		}
+		
+		a.brand img {
+			margin-top: 50px;
+			width: 300px;
+		}
+		
+		ul.nav {
+			color: rgb(255, 255, 255);
+		}
+	</style>
 </head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><a href="index.html">RDFa&sup2;</a></h1>
-			<h3><span>RDFa a</span>nnotator for general purposes.</h3>
-		</div>
-		<div id="tabs11">
-			<ul>
-				<li><a href="index.html"><span>By Context URI</span></a></li>
-				<li><a href="index2.html"><span>Input Context Directly</span></a></li>
-				<li><a href="about.html"><span>About</span></a></li>
-				<li><a href="contact.html"><span>Contact</span></a></li>
-				<li><a href="api.html"><span>API</span></a></li>
-			</ul>
-		</div>
-		<div id="forms">
-			<form id="firstform">
-				<label>RDF context file URL: </label><br/>
-				<input id="rdfurl_0" type="text" name="rdfurl" value="e.g., your FOAF file URL (http://www.example.org/foaf.rdf)" onfocus="javascript: this.select();" size="100"/><br/>
-				<label>Topic URI: </label><input class="guessbutton" type="button" value="Make a guess!" id="guess_0" onclick="guess_topic_with_ui(this.id);this.blur();"/> <img id="guessloader_0" src="resource/ajax-loader.gif" style="display:none"/><br/>
-				<input id="topicuri_0" type="text" name="topicuri" value="e.g., your avatar URI (http://www.example.org/foaf.rdf#me)" onfocus="javascript: this.select();" size="100"/><br/>
-				<div id="suggestion_0" style="display:none"></div>
-			</form>
-		</div>
-		<div id="execution">
-			<span class="button"><a id="addtopic" href="javascript:" onclick="add_topic();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #080; background: #f90; padding: 0px 10px;">Add Topics!</span></span></a> <span id="or">or</span> <a id="addtopiccontext" href="javascript:" onclick="add_url_context();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #080; background: #f90; padding: 0px 10px;">Add Contexts!</span></span></a></span><br/>
-			<hr/>
-			Select a publishing type:<br/><p/>
-			<select id="publishingtype">
-				<option value="0" selected="selected">Complete Page</option>
-				<option value="1">DIV Snippet</option>
-				<option value="2">Vocabulary</option>
-			</select>
-			<span class="button"><a id="strip" href="javascript:" onclick="publish();"><span style="background: #fff; padding: 5px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; border: 1px solid #f90;"><span style="color: #080; background: #f90; padding: 0px 10px;">GO!</span></span></a></span><img id="publish_loader" src="resource/ajax-loader.gif" style="display:none"/>
-		</div>	
-		<div id="markup">
-			<label>XHTML+RDFa source code:</label>
-			<textarea id="xhtmlrdfa"  onKeyUp="update();" onMouseup="update();"></textarea>
-			<span class="button"><a id="strip" href="javascript:" onclick="strip_indicators();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #080; background: #f90; padding: 0px 10px;">strip indicators</span></span></a></span>
-			<span class="button"><a id="showindicator" href="javascript:" onclick="show_indicators();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #080; background: #f90; padding: 0px 10px;">before last striping</span></span></a></span>
-			<div id="tip">PS: Indicators in the form of [property &gt;&gt;] or [property &lt;&lt;] are used for indicating properties and the directions of triple elements (&gt;&gt; means SPO and &lt;&lt; means OPS). You can use your own descriptions to replace them and easliy tripe all of them by pushing the above button.</div>
-		</div>
-		<div id="previewpage">
-			<label>Page preview:</label>
-			<iframe id="preview" name="preview" width="85%" height="100%" frameborder="0"></iframe>
-			<select id="serialization">
-				<option value="0" selected="selected">XHTML + RDFa</option>
-				<option value="1">RDF/XML</option>
-				<option value="2">RDF/XML-ABBREV</option>
-				<option value="3">N-TRIPLE</option>
-				<option value="4">TURTLE</option>
-				<option value="5">N3</option>
-				<!-- option value="6">JSON</option-->
-			</select>
-			<form id="glean_form" action="/rdfasquare/baxtree/apis/TriplesGleaner" method="POST" style="display:none;">
-				<input type="text" name="rdfacontent" value=""/>
-				<input type="text" name="baseuri" value=""/>
-				<input type="text" name="format" value=""/>
-			</form>
-			<span class="button"><a id="glean" href="javascript:" onclick="glean_triples();"><span style="background: #fff; padding: 1px; font-family: Verdana, Geneva, Vera, Arial, Helvetica, sans-serif; font-size: small; font-variant: small-caps; border: 1px solid #f90;"><span style="color: #080; background: #f90; padding: 0px 10px;">export</span></span></a></span>
-		</div>
-		<div id="footer">
-			<div id="altnav">
-				<a href="template.html">Template Editor</a> -
-				<a href="about.html">About</a> -
-				<a href="contact.html">Contact</a> -
-				<a href="api.html">API</a>
-			</div>
-			<div id="copyright">
-				Copyright &copy;2010 <a href="http://homepages.inf.ed.ac.uk/s0896253">Xi Bai</a> | Powered by <a href="http://freemarker.org/" >FreeMarker</a><br/>
-			</div>
-			<div id="license">
-				<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/scotland/88x31.png" /></a><br />RDFa<sup>2</sup> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/scotland/">Creative Commons Attribution-Share Alike 2.5 UK: Scotland License</a>.<br/>
-				Many thanks to the support from Professor <a href="http://www.cogsci.ed.ac.uk/~ewan/">Ewan Klein</a>
-			</div>
-		</div>
-	</div>
-</body>
+ <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="indexnew.html">Home</a></li>
+              <li id="current"><a href="indexnew.html"><span>By Context URI</span></a></li>
+			  <li><a href="index2.html"><span>Input Context Directly</span></a></li>
+			  <li><a href="template.html"><span>Customize Template</span></a></li>
+			  <li><a href="about.html"><span>About</span></a></li>
+			  <li><a href="contact.html"><span>Contact</span></a></li>
+			  <li><a href="api.html"><span>API</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <a class="brand" href="./indexnew.html"><img src="resource/logo.gif" /></a>
+    <p class="lead"><i>RDFa a</i>nnotator for general purposes.</p>
+  </div>
+</header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span9">
+
+
+
+        <!-- Download
+        ================================================== -->
+        <section id="download-bootstrap">
+          <div class="page-header">
+            <h1>1. Download</h1>
+          </div>
+          <p class="lead">Before downloading, be sure to have a code editor (we recommend <a href="http://sublimetext.com/2">Sublime Text 2</a>) and some working knowledge of HTML and CSS. We won't walk through the source files here, but they are available for download. We'll focus on getting started with the compiled Bootstrap files.</p>
+
+          <div class="row-fluid">
+            <div class="span6">
+              <h2>Download compiled</h2>
+              <p><strong>Fastest way to get started:</strong> get the compiled and minified versions of our CSS, JS, and images. No docs or original source files.</p>
+              <p><a class="btn btn-large btn-primary" href="assets/bootstrap.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
+            </div>
+            <div class="span6">
+              <h2>Download source</h2>
+              <p>Get the original files for all CSS and JavaScript, along with a local copy of the docs by downloading the latest version directly from GitHub.</p>
+              <p><a class="btn btn-large" href="https://github.com/twitter/bootstrap/zipball/master" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download Bootstrap source</a></p>
+            </div>
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://blog.getbootstrap.com">Read the blog</a></li>
+          <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Submit issues</a></li>
+          <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
+        </ul>
+      </div>
+    </footer>
+
+  </body>
 </html>
