@@ -1,7 +1,7 @@
 Testsuite: test.rdfasquare.RegressionJUnitTest
-Tests run: 1, Failures: 0, Errors: 1, Time elapsed: 1.485 sec
+Tests run: 1, Failures: 0, Errors: 1, Time elapsed: 0.472 sec
 
-Testcase: testRDFaSquareTestCaseJUnit took 0.215 sec
+Testcase: testRDFaSquareTestCaseJUnit took 0.036 sec
 	Caused an ERROR
 Could not start Selenium session: Failed to start new browser session: Error while launching browser
 java.lang.RuntimeException: Could not start Selenium session: Failed to start new browser session: Error while launching browser

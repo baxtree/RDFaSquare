@@ -165,12 +165,14 @@
 			input1.name = "rdfurl";
 			input1.id = "rdfurl_"+form_count;
 			input1.size = 100;
+			input1.setAttribute("class", "input-xxlarge");
 			var label2 = document.createElement("label");
 			label2.appendChild(document.createTextNode("Topic URI: "));
 			var input2 = document.createElement("input");
 			input2.name = "topicuri";
 			input2.id = "topicuri_"+form_count;
 			input2.size = 100;
+			input2.setAttribute("class", "input-xxlarge");
 			var div_suggestion = document.createElement("div");
 			div_suggestion.id = "suggestion_"+form_count;
 			div_suggestion.style.display = "none";
@@ -179,6 +181,7 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
+			guess_button.setAttribute("class", "btn btn-primary btn-warning");
 			guess_button.onclick = function(){guess_topic_with_ui(this.id); this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			var loader = document.createElement("img");
@@ -227,6 +230,7 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
+			guess_button.setAttribute("class", "btn btn-primary btn-warning");
 			guess_button.onclick = function(){guess_topic_with_ui(this.id);this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			var loader = document.createElement("img");
@@ -267,12 +271,13 @@
 			input.name = "topicuri";
 			input.id = "topicuri_" + topic_count;
 			input.onfocus = "javascript: this.select();";
-			input.size = 100;
+			input.setAttribute("class", "input-xxlarge");
 			var guess_button = document.createElement("input");
 			guess_button.setAttribute("class", "guessbutton");
 			guess_button.id = "guess_"+topic_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
+			guess_button.setAttribute("class", "btn btn-primary btn-warning");
 			guess_button.onclick = function(){guess_topic_with_ui(this.id);this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
 			var loader = document.createElement("img");
