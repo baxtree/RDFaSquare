@@ -184,6 +184,9 @@ a:visited{
 
 #screenshot{
 	padding-top: 30px;
+	float: left;
+	padding-left:100px;
+	padding-bottom: 60px;
 }
 
 #markup{
