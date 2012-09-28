@@ -181,13 +181,19 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.setAttribute("class", "btn btn-primary btn-warning");
+			guess_button.setAttribute("class", "btn btn-mini btn-primary btn-warning");
 			guess_button.onclick = function(){guess_topic_with_ui(this.id); this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
-			var loader = document.createElement("img");
+/*			var loader = document.createElement("img");
 			loader.id = "guessloader_" + form_count;
 			loader.src = "resource/ajax-loader.gif";
 			loader.style.display = "none";
+*/
+			var loader = document.createElement("div");
+			loader.id = "guessloader_" + form_count;
+			loader.setAttribute("class", "progress progress-striped progress-warning active span2");
+			loader.style.display = "none";
+			loader.innerHTML = "<div class='bar' style='width: 100%;'></div>";
 			new_form.appendChild(hr);
 			new_form.appendChild(label1);
 			new_form.appendChild(document.createElement("br"));
@@ -230,13 +236,19 @@
 			guess_button.id = "guess_"+form_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.setAttribute("class", "btn btn-primary btn-warning");
+			guess_button.setAttribute("class", "btn btn-mini btn-primary btn-warning");
 			guess_button.onclick = function(){guess_topic_with_ui(this.id);this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
-			var loader = document.createElement("img");
+/*			var loader = document.createElement("img");
 			loader.id = "guessloader_" + form_count;
 			loader.src = "resource/ajax-loader.gif";
 			loader.style.display = "none";
+*/			
+			var loader = document.createElement("div");
+			loader.id = "guessloader_" + form_count;
+			loader.setAttribute("class", "progress progress-striped progress-warning active span2");
+			loader.style.display = "none";
+			loader.innerHTML = "<div class='bar' style='width: 100%;'></div>";
 			new_form.appendChild(hr);
 			new_form.appendChild(label1);
 			new_form.appendChild(document.createElement("br"));
@@ -277,13 +289,19 @@
 			guess_button.id = "guess_"+topic_count;
 			guess_button.type = "button";
 			guess_button.value = "Make a guess!";
-			guess_button.setAttribute("class", "btn btn-primary btn-warning");
+			guess_button.setAttribute("class", "btn btn-mini btn-primary btn-warning");
 			guess_button.onclick = function(){guess_topic_with_ui(this.id);this.blur();};
 			guess_button.appendChild(document.createTextNode("Make a guess!"));
-			var loader = document.createElement("img");
+/*			var loader = document.createElement("img");
 			loader.id = "guessloader_" + topic_count;
 			loader.src = "resource/ajax-loader.gif";
 			loader.style.display = "none";
+*/
+			var loader = document.createElement("div");
+			loader.id = "guessloader_" + topic_count;
+			loader.setAttribute("class", "progress progress-striped progress-warning active span2");
+			loader.style.display = "none";
+			loader.innerHTML = "<div class='bar' style='width: 100%;'></div>";
 			form.appendChild(input1);
 			form.appendChild(label);
 			form.appendChild(guess_button);

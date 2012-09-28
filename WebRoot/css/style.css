@@ -183,7 +183,7 @@ a:visited{
 }
 
 #screenshot{
-	padding-top: 260px;
+	padding-top: 30px;
 }
 
 #markup{
@@ -224,20 +224,20 @@ label{
 
 #footer {
 	clear:both;
-	background: orange;
+	background: rgb(255, 153, 51);
 	height: 66px;
 	font-family: Tahoma, Arial, Helvetica, Sans-serif;
 	font-size: 10px;
-	color: #999999;
+	color: rgb(255, 211, 170);
 	border-top: 1px solid #efefef;
-	padding-top: 30px;	
-	padding-bottom: 45px;
+	padding: 30px 10px 45px 10px;	
 	margin-top: 45px !important;
 	line-height: 18px;
 }
 
 #footer a{
-	text-decoration: none;
+	text-decoration: underline;
+	color: rgb(255, 211, 170);
 }
 
 #footer a:hover{
@@ -328,4 +328,8 @@ label{
 
 #subtitle {
 	margin-left: 10px ;
+}
+
+#main-content {
+	padding: 15px;
 }
