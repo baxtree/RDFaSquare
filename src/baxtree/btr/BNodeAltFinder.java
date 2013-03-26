@@ -13,7 +13,9 @@ public class BNodeAltFinder {
 		"http://www.w3.org/2000/01/rdf-schema#seeAlso",
 		"http://xmlns.com/foaf/0.1/name", 
 		"http://www.w3.org/2004/02/skos/core#prefLabel",
-		"http://www.w3.org/2000/01/rdf-schema#label"
+		"http://www.w3.org/2000/01/rdf-schema#label",
+		"http://purl.org/dc/terms/title",
+		"http://purl.org/dc/terms/subtitle"
 	};
 	
 	public static String getAltForBlankNode(Resource bnode, Model model){

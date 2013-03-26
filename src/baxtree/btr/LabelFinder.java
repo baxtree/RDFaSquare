@@ -23,6 +23,7 @@ public class LabelFinder {
 	}
 	
 	public static String getPreferredLabel(Model model, String uri){
+//		model.write(System.out, "RDF/XML-ABBREV");
 		String label = null;
 		Resource resource = model.getResource(uri);
 		for(String labeling_uri : labeling_uris){
