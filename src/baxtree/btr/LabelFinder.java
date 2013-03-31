@@ -15,7 +15,8 @@ public class LabelFinder {
 										"http://www.w3.org/2004/02/skos/core#prefLabel",
 										"http://www.w3.org/2000/01/rdf-schema#label",
 										"http://purl.org/dc/terms/title",
-										"http://purl.org/dc/terms/subtitle"};
+										"http://purl.org/dc/terms/subtitle",
+										"http://purl.org/dc/elements/1.1/title"};
 
 	public static String getPreferredLabelFromEndpoint(String endpoint_url, String uri){
 		//TODO need implement
