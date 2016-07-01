@@ -96,7 +96,7 @@ http://www.productivewise.com/wp-content/uploads/2009/11/foaf.rdf
 http://www.lri.fr/~pietriga/foaf.rdf
 http://www.sidar.org/que/ge/egyr/egyr.rdf
 http://tora.us.fm/erelsgl/foaf.rdf
-http://ericallen.x10hosting.com/ericallen.rdf
+http://ericallen.x10host.com/ericallen.rdf
 http://members.cox.net/egarbin/foaf.rdf
 http://ericjansson.net/foaf.rdf
 http://www.syserror.net/foaf/foaf.rdf
